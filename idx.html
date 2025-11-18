@@ -16,6 +16,7 @@
             --text-main: #212121;
             --text-muted: #616161;
             --border-subtle: #e0e0e0;
+            --green-dark: #079455;
             --green: #00a85a;
             --green-soft: #e5f6ec;
             --green-dark: #008047;
@@ -110,10 +111,33 @@
         .feature-list li {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            /* text left, number/icon right */
             margin-bottom: 8px;
         }
 
-        .feature-icon {
+        /* left text */
+        .feature-text {
+            flex: 1;
+        }
+
+        /* right side container (number or icon) */
+        .feature-meta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-end;
+            min-width: 40px;
+            /* keeps right side nicely aligned */
+        }
+
+        /* number on right */
+        .feature-number {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* tick icon on right */
+        .feature-check {
             width: 18px;
             height: 18px;
             border-radius: 50%;
@@ -123,9 +147,8 @@
             justify-content: center;
             font-size: 11px;
             color: var(--green);
-            margin-right: 8px;
-            flex-shrink: 0;
         }
+
 
         .left-link {
             font-size: 13px;
@@ -247,7 +270,7 @@
 
         .plan-card {
             border-radius: var(--radius-md);
-            border: 1px solid var(--border-subtle);
+            border: 2px solid var(--border-subtle);
             padding: 10px 12px;
             display: flex;
             align-items: center;
@@ -259,13 +282,15 @@
         }
 
         .plan-card:hover {
-            border-color: var(--primary);
+            border-color: var(--green-dark);
             background: #f2f6ff;
         }
 
         .plan-card.selected {
-            border-color: var(--primary);
-            background: #edf4ff;
+            border-radius: 8px;
+            border-style: solid;
+            border-color: var(--green-dark);
+            background: #ECFDF3;
             box-shadow: 0 0 0 1px #d1ddff;
         }
 
@@ -307,6 +332,7 @@
         .plan-price {
             font-size: 18px;
             font-weight: 700;
+            color: var(--green-dark);
         }
 
         .plan-old-price {
@@ -356,7 +382,7 @@
 
         .primary-btn {
             width: 100%;
-            border-radius: 999px;
+            border-radius: 8px;
             border: none;
             background: var(--green);
             color: #fff;
@@ -452,34 +478,55 @@
 
                     <ul class="feature-list">
                         <li>
-                            <span class="feature-icon">✓</span>
-                            Monthly Application Limit <strong>70</strong>
+                            <span class="feature-text">Monthly Application Limit</span>
+                            <span class="feature-meta">
+                                <span class="feature-number">70</span>
+                            </span>
                         </li>
+
                         <li>
-                            <span class="feature-icon">✓</span>
-                            Jobs Application Boosting <strong>5</strong>
+                            <span class="feature-text">Jobs Application Boosting</span>
+                            <span class="feature-meta">
+                                <span class="feature-number">5</span>
+                            </span>
                         </li>
+
                         <li>
-                            <span class="feature-icon">✓</span>
-                            Jobs Direct Message to Employer <strong>35</strong>
+                            <span class="feature-text">Jobs Direct Message to Employer</span>
+                            <span class="feature-meta">
+                                <span class="feature-number">35</span>
+                            </span>
                         </li>
+
                         <li>
-                            <span class="feature-icon">✓</span>
-                            Application Insights
+                            <span class="feature-text">Application Insights</span>
+                            <span class="feature-meta">
+                                <span class="feature-check">✓</span>
+                            </span>
                         </li>
+
                         <li>
-                            <span class="feature-icon">✓</span>
-                            25 Direct Message to Employer
+                            <span class="feature-text">25 Direct Message to Employer</span>
+                            <span class="feature-meta">
+                                <span class="feature-check">✓</span>
+                            </span>
                         </li>
+
                         <li>
-                            <span class="feature-icon">✓</span>
-                            150s Upload Video CV
+                            <span class="feature-text">150s Upload Video CV</span>
+                            <span class="feature-meta">
+                                <span class="feature-check">✓</span>
+                            </span>
                         </li>
+
                         <li>
-                            <span class="feature-icon">✓</span>
-                            Monitor Employer Job Activity
+                            <span class="feature-text">Monitor Employer Job Activity</span>
+                            <span class="feature-meta">
+                                <span class="feature-check">✓</span>
+                            </span>
                         </li>
                     </ul>
+
 
 
                     <a href="#" class="left-link">Learn more</a>
