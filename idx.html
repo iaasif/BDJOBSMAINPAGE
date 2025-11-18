@@ -48,14 +48,13 @@
             justify-content: center;
             padding: 16px;
             z-index: 999;
-         
+
         }
 
         .popover {
             background: var(--white);
             border-radius: 8px;
-            max-width: 960px;
-            width: 100%;
+            max-width: 974px;
             box-shadow: var(--shadow-modal);
             position: relative;
             overflow: hidden;
@@ -161,11 +160,12 @@
 
         /* ===== Right column (content) ===== */
         .popover-right {
-     
+
             flex: 1;
             padding: 28px 28px 24px;
             display: flex;
             flex-direction: column;
+            min-width: 495px;
         }
 
         .pro-header {
@@ -429,8 +429,9 @@
         /* ===== Mobile layout ===== */
         @media (max-width: 768px) {
             .popover {
-                max-width: 420px;
-                border-radius: 18px;
+                /* max-width: 420px;
+                border-radius: 18px; */
+                max-width: 974px;
             }
 
             .popover-inner {
@@ -454,8 +455,21 @@
                 justify-content: flex-start;
             }
 
+            /* .plans {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 16px;
+            } */
+
             .plans {
-                margin-bottom: 12px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                /* 3 equal columns */
+                gap: 16px;
+            }
+
+            .plan-card {
+                width: 100%;
             }
         }
 
@@ -474,7 +488,8 @@
 
             .img-popOver {
                 display: none;
-            }
+            }\
+
         }
 
         .img-popOver {
