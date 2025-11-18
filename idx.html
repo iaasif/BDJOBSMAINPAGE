@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Bdjobs PRO Popover</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Optional font (looks close to your design) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-overlay: rgba(0, 0, 0, 0.55);
+            --white: #ffffff;
+            --text-main: #212121;
+            --text-muted: #616161;
+            --border-subtle: #e0e0e0;
+            --green: #00a85a;
+            --green-soft: #e5f6ec;
+            --green-dark: #008047;
+            --primary: #2f64a3;
+            --pink: #eb0d74;
+            --radius-lg: 12px;
+            --radius-md: 8px;
+            --shadow-modal: 0 18px 45px rgba(0, 0, 0, 0.24);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f5f5f5;
+        }
+
+        /* ===== Overlay + Modal ===== */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-overlay);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            z-index: 999;
+        }
+
+        .popover {
+            background: var(--white);
+            border-radius: 8px;
+            max-width: 960px;
+            width: 100%;
+            box-shadow: var(--shadow-modal);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popover-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            border: none;
+            background: transparent;
+            font-size: 20px;
+            cursor: pointer;
+            color: #757575;
+        }
+
+        .popover-inner {
+            display: flex;
+            min-height: 520px;
+        }
+
+        /* ===== Left column (desktop) ===== */
+        .popover-left {
+            flex: 0 0 40%;
+            padding: 32px 28px;
+            border-right: 1px solid var(--border-subtle);
+            background: #fafafa;
+        }
+
+        .left-title-main {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .left-title-sub {
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+            font-size: 13px;
+            color: var(--text-main);
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .feature-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid var(--green);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: var(--green);
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .left-link {
+            font-size: 13px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* ===== Right column (content) ===== */
+        .popover-right {
+            flex: 1;
+            padding: 28px 28px 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pro-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 20px;
+            margin-right: 6px;
+        }
+
+        .logo-pro {
+            font-size: 13px;
+            font-weight: 700;
+            background: var(--green);
+            color: #fff;
+            border-radius: 999px;
+            padding: 2px 10px 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .pro-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            max-width: 340px;
+        }
+
+        .save-more {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 11px;
+            color: var(--green-dark);
+            margin-bottom: 8px;
+            gap: 6px;
+        }
+
+        .save-pill {
+            background: #fff2c2;
+            color: #b37a00;
+            border-radius: 999px;
+            padding: 2px 6px;
+            font-weight: 600;
+        }
+
+        /* ===== Billing tabs ===== */
+        .billing-tabs {
+            display: inline-flex;
+            border-radius: 999px;
+            background: #f3f4ff;
+            padding: 3px;
+            margin-bottom: 16px;
+        }
+
+        .billing-tab {
+            border: none;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: transparent;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+        .billing-tab.active {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: 0 0 0 1px #d1ddff;
+        }
+
+        .billing-tab .small-pill {
+            font-size: 10px;
+            padding: 1px 6px 2px;
+            border-radius: 999px;
+            background: var(--green-soft);
+            color: var(--green-dark);
+            font-weight: 600;
+        }
+
+        .billing-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        /* ===== Plan cards ===== */
+        .plans {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .plan-card {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            background: #fafafa;
+            position: relative;
+        }
+
+        .plan-card:hover {
+            border-color: var(--primary);
+            background: #f2f6ff;
+        }
+
+        .plan-card.selected {
+            border-color: var(--primary);
+            background: #edf4ff;
+            box-shadow: 0 0 0 1px #d1ddff;
+        }
+
+        .plan-main {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .plan-name-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 2px;
+        }
+
+        .plan-name {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .plan-tag {
+            font-size: 10px;
+            font-weight: 600;
+            color: #b37a00;
+            background: #fff2c2;
+            padding: 2px 6px;
+            border-radius: 999px;
+        }
+
+        .plan-price-row {
+            font-size: 14px;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            color: var(--text-main);
+        }
+
+        .plan-price {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .plan-old-price {
+            font-size: 12px;
+            color: #9e9e9e;
+            text-decoration: line-through;
+        }
+
+        .plan-per {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .plan-radio {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid #c7c7c7;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .plan-radio-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: transparent;
+        }
+
+        .plan-card.selected .plan-radio {
+            border-color: var(--primary);
+        }
+
+        .plan-card.selected .plan-radio-dot {
+            background: var(--primary);
+        }
+
+        /* ===== Footer CTA ===== */
+        .popover-footer {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .primary-btn {
+            width: 100%;
+            border-radius: 999px;
+            border: none;
+            background: var(--green);
+            color: #fff;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .primary-btn:hover {
+            background: var(--green-dark);
+        }
+
+        .primary-btn-arrow {
+            font-size: 14px;
+        }
+
+        .help-text {
+            font-size: 11px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .help-text span {
+            font-weight: 500;
+        }
+
+        /* ===== Mobile layout ===== */
+        @media (max-width: 768px) {
+            .popover {
+                max-width: 420px;
+                border-radius: 18px;
+            }
+
+            .popover-inner {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .popover-left {
+                flex: none;
+                border-right: none;
+                border-bottom: 1px solid var(--border-subtle);
+                padding: 20px 18px 16px;
+                background: #fff7fd;
+            }
+
+            .popover-right {
+                padding: 18px 18px 16px 18px;
+            }
+
+            .save-more {
+                justify-content: flex-start;
+            }
+
+            .plans {
+                margin-bottom: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .billing-tabs {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .billing-tab {
+                flex: 1;
+                justify-content: center;
+                padding-inline: 6px;
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Overlay & Popover -->
+    <div class="overlay" role="dialog" aria-modal="true">
+        <div class="popover">
+            <button class="popover-close" aria-label="Close popover">&times;</button>
+
+            <div class="popover-inner">
+                <!-- LEFT COLUMN (features) -->
+                <div class="popover-left">
+                    <div class="left-title-main">What you get on the Basic Plan</div>
+                    <div class="left-title-sub">Everything included</div>
+
+                    <ul class="feature-list">
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            Monthly Application Limit <strong>70</strong>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            Jobs Application Boosting <strong>5</strong>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            Jobs Direct Message to Employer <strong>35</strong>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            Application Insights
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            25 Direct Message to Employer
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            150s Upload Video CV
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            Monitor Employer Job Activity
+                        </li>
+                    </ul>
+
+
+                    <a href="#" class="left-link">Learn more</a>
+                </div>
+
+                <!-- RIGHT COLUMN (pricing) -->
+                <div class="popover-right">
+                    <div class="pro-header">
+                        <div class="logo-text">bdjobs</div>
+                        <div class="logo-pro">PRO</div>
+                    </div>
+                    <p class="pro-subtitle">
+                        With Business, your team will gain access to a wider variety of can’t miss reminders.
+                    </p>
+
+                    <div class="save-more">
+                        <span class="save-pill">Save 75%</span>
+                        <span class="save-pill">Save 75%</span>
+                        <span>Save More!</span>
+                    </div>
+
+                    <div class="billing-label">Billing cycle</div>
+
+                    <div class="billing-tabs" id="billingTabs">
+                        <button class="billing-tab active" data-cycle="monthly">
+                            Monthly <span class="small-pill">Save 50%</span>
+                        </button>
+                        <button class="billing-tab" data-cycle="quarterly">
+                            Quarterly <span class="small-pill">Save 60%</span>
+                        </button>
+                        <button class="billing-tab" data-cycle="yearly">
+                            Yearly <span class="small-pill">Save 75%</span>
+                        </button>
+                    </div>
+
+                    <div class="plans" id="plans">
+                        <div class="plan-card selected" data-plan="basic">
+                            <div class="plan-main">
+                                <div class="plan-name-row">
+                                    <span class="plan-name">Basic</span>
+                                </div>
+                                <div class="plan-price-row">
+                                    <span class="plan-price" data-field="price">৳99</span>
+                                    <span class="plan-old-price" data-field="oldPrice">৳120</span>
+                                    <span class="plan-per" data-field="per">/month</span>
+                                    <span class="plan-tag" data-field="discount">Save 50%</span>
+                                </div>
+                            </div>
+                            <div class="plan-radio">
+                                <div class="plan-radio-dot"></div>
+                            </div>
+                        </div>
+
+                        <div class="plan-card" data-plan="standard">
+                            <div class="plan-main">
+                                <div class="plan-name-row">
+                                    <span class="plan-name">Standard</span>
+                                </div>
+                                <div class="plan-price-row">
+                                    <span class="plan-price" data-field="price">৳149</span>
+                                    <span class="plan-old-price" data-field="oldPrice">৳180</span>
+                                    <span class="plan-per" data-field="per">/month</span>
+                                    <span class="plan-tag" data-field="discount">Save 50%</span>
+                                </div>
+                            </div>
+                            <div class="plan-radio">
+                                <div class="plan-radio-dot"></div>
+                            </div>
+                        </div>
+
+                        <div class="plan-card" data-plan="premium">
+                            <div class="plan-main">
+                                <div class="plan-name-row">
+                                    <span class="plan-name">Premium</span>
+                                </div>
+                                <div class="plan-price-row">
+                                    <span class="plan-price" data-field="price">৳149</span>
+                                    <span class="plan-old-price" data-field="oldPrice">৳180</span>
+                                    <span class="plan-per" data-field="per">/month</span>
+                                    <span class="plan-tag" data-field="discount">Save 50%</span>
+                                </div>
+                            </div>
+                            <div class="plan-radio">
+                                <div class="plan-radio-dot"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="popover-footer">
+                        <button class="primary-btn" id="upgradeBtn">
+                            Upgrade Plan <span class="primary-btn-arrow">➜</span>
+                        </button>
+                        <div class="help-text">
+                            Need help? <span>09638866444</span> or <span>01897627858</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // ========= PRICING DATA =========
+        const pricingData = {
+            monthly: {
+                basic: { price: 99, oldPrice: 120, per: "/month", discount: "Save 50%" },
+                standard: { price: 149, oldPrice: 180, per: "/month", discount: "Save 50%" },
+                premium: { price: 149, oldPrice: 180, per: "/month", discount: "Save 50%" }
+            },
+            quarterly: {
+                basic: { price: 249, oldPrice: 360, per: "/quarter", discount: "Save 60%" },
+                standard: { price: 349, oldPrice: 480, per: "/quarter", discount: "Save 60%" },
+                premium: { price: 399, oldPrice: 540, per: "/quarter", discount: "Save 60%" }
+            },
+            yearly: {
+                basic: { price: 799, oldPrice: 1440, per: "/year", discount: "Save 75%" },
+                standard: { price: 999, oldPrice: 1800, per: "/year", discount: "Save 75%" },
+                premium: { price: 1199, oldPrice: 2160, per: "/year", discount: "Save 75%" }
+            }
+        };
+
+        const overlay = document.querySelector(".overlay");
+        const closeBtn = document.querySelector(".popover-close");
+        const billingTabs = document.querySelectorAll(".billing-tab");
+        const planCards = document.querySelectorAll(".plan-card");
+        const upgradeBtn = document.getElementById("upgradeBtn");
+
+        let currentCycle = "monthly";
+        let currentPlan = "basic";
+
+        function formatBDT(value) {
+            return "৳" + value;
+        }
+
+        function updatePrices(cycle) {
+            currentCycle = cycle;
+            planCards.forEach(card => {
+                const planKey = card.dataset.plan;
+                const data = pricingData[cycle][planKey];
+
+                const priceEl = card.querySelector('[data-field="price"]');
+                const oldPriceEl = card.querySelector('[data-field="oldPrice"]');
+                const perEl = card.querySelector('[data-field="per"]');
+                const discEl = card.querySelector('[data-field="discount"]');
+
+                priceEl.textContent = formatBDT(data.price);
+                oldPriceEl.textContent = formatBDT(data.oldPrice);
+                perEl.textContent = data.per;
+                discEl.textContent = data.discount;
+            });
+
+            upgradeBtn.textContent = `Upgrade ${capitalize(currentPlan)} – ${capitalize(cycle)} plan ➜`;
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        // Billing tab click
+        billingTabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                billingTabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+                updatePrices(tab.dataset.cycle);
+            });
+        });
+
+        // Plan card click
+        planCards.forEach(card => {
+            card.addEventListener("click", () => {
+                planCards.forEach(c => c.classList.remove("selected"));
+                card.classList.add("selected");
+                currentPlan = card.dataset.plan;
+                upgradeBtn.textContent = `Upgrade ${capitalize(currentPlan)} – ${capitalize(currentCycle)} plan ➜`;
+            });
+        });
+
+        // Close popover
+        closeBtn.addEventListener("click", () => {
+            overlay.style.display = "none";
+        });
+
+        overlay.addEventListener("click", e => {
+            if (e.target === overlay) overlay.style.display = "none";
+        });
+
+        // Initial button text
+        updatePrices("monthly");
+    </script>
+</body>
+
+</html>
