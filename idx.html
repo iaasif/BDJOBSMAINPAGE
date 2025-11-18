@@ -25,6 +25,7 @@
             --radius-lg: 12px;
             --radius-md: 8px;
             --shadow-modal: 0 18px 45px rgba(0, 0, 0, 0.24);
+            --hover-card-bg-color: #ECFDF3;
         }
 
         * {
@@ -82,7 +83,7 @@
             flex: 0 0 40%;
             padding: 32px 28px;
             border-right: 1px solid var(--border-subtle);
-            background: #fafafa;
+            background: #FCF9F1;
         }
 
         .left-title-main {
@@ -220,6 +221,7 @@
             background: #f3f4ff;
             padding: 3px;
             margin-bottom: 16px;
+            width: fit-content;
         }
 
         .billing-tab {
@@ -238,8 +240,8 @@
         }
 
         .billing-tab.active {
-            background: var(--white);
-            color: var(--primary);
+            background: var(--green-dark);
+            color: var(--white);
             box-shadow: 0 0 0 1px #d1ddff;
         }
 
@@ -282,8 +284,8 @@
         }
 
         .plan-card:hover {
-            border-color: var(--green-dark);
-            background: #f2f6ff;
+            border-color: var(--hover-card-bg-color);
+            background: var(--hover-card-bg-color);
         }
 
         .plan-card.selected {
@@ -315,10 +317,14 @@
         .plan-tag {
             font-size: 10px;
             font-weight: 600;
-            color: #b37a00;
-            background: #fff2c2;
+            color: #C63C92;
+            background: #FCF3FA;
             padding: 2px 6px;
-            border-radius: 999px;
+            border-radius: 12px;
+            border: #D95BB0;
+            border-style: solid;
+
+            border: 1px solid #C63C92;
         }
 
         .plan-price-row {
@@ -347,30 +353,40 @@
         }
 
         .plan-radio {
-            width: 18px;
-            height: 18px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            border: 2px solid #c7c7c7;
+            border: 1px solid var(--border-subtle);
+            /* Light grey border */
+            background: transparent;
+            /* No fill */
             display: inline-flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            position: absolute;
+            top: 12px;
+            right: 16px;
         }
 
         .plan-radio-dot {
-            width: 10px;
-            height: 10px;
+            width: 4px;
+            height: 4px;
             border-radius: 50%;
             background: transparent;
+
         }
 
+
         .plan-card.selected .plan-radio {
-            border-color: var(--primary);
+            background: var(--green-dark);
+            border-color: var(--green-dark);
         }
 
         .plan-card.selected .plan-radio-dot {
-            background: var(--primary);
+            background: white;
         }
+
 
         /* ===== Footer CTA ===== */
         .popover-footer {
@@ -459,6 +475,15 @@
                 padding-inline: 6px;
                 font-size: 11px;
             }
+
+            .img-popOver {
+                display: none;
+            }
+        }
+
+        .img-popOver {
+            width: 336px;
+            height: 260px;
         }
     </style>
 </head>
@@ -473,8 +498,8 @@
             <div class="popover-inner">
                 <!-- LEFT COLUMN (features) -->
                 <div class="popover-left">
+                    <img src="/img-pro.png" class="img-popOver" alt="">
                     <div class="left-title-main">What you get on the Basic Plan</div>
-                    <div class="left-title-sub">Everything included</div>
 
                     <ul class="feature-list">
                         <li>
@@ -548,17 +573,16 @@
                         <span>Save More!</span>
                     </div>
 
-                    <div class="billing-label">Billing cycle</div>
-
                     <div class="billing-tabs" id="billingTabs">
                         <button class="billing-tab active" data-cycle="monthly">
-                            Monthly <span class="small-pill">Save 50%</span>
+                            Monthly
                         </button>
                         <button class="billing-tab" data-cycle="quarterly">
-                            Quarterly <span class="small-pill">Save 60%</span>
+                            Quarterly
                         </button>
                         <button class="billing-tab" data-cycle="yearly">
-                            Yearly <span class="small-pill">Save 75%</span>
+                            Yearly
+                            <!-- <span class="small-pill">Save 75%</span> -->
                         </button>
                     </div>
 
@@ -568,6 +592,7 @@
                                 <div class="plan-name-row">
                                     <span class="plan-name">Basic</span>
                                 </div>
+
                                 <div class="plan-price-row">
                                     <span class="plan-price" data-field="price">৳99</span>
                                     <span class="plan-old-price" data-field="oldPrice">৳120</span>
@@ -575,10 +600,13 @@
                                     <span class="plan-tag" data-field="discount">Save 50%</span>
                                 </div>
                             </div>
+
+                            <!-- Move radio button here -->
                             <div class="plan-radio">
                                 <div class="plan-radio-dot"></div>
                             </div>
                         </div>
+
 
                         <div class="plan-card" data-plan="standard">
                             <div class="plan-main">
