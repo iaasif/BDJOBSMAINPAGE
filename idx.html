@@ -598,21 +598,22 @@
                         <li>
                             <span class="feature-text">Monthly Application Limit</span>
                             <span class="feature-meta">
-                                <span class="feature-number">70</span>
+                                <span class="feature-number" id="monthlyLimit">70</span>
                             </span>
                         </li>
+
 
                         <li>
                             <span class="feature-text">Jobs Application Boosting</span>
                             <span class="feature-meta">
-                                <span class="feature-number">5</span>
+                                <span class="feature-number" id="boosting">5</span>
                             </span>
                         </li>
 
                         <li>
                             <span class="feature-text">Jobs Direct Message to Employer</span>
                             <span class="feature-meta">
-                                <span class="feature-number">35</span>
+                                <span class="feature-number" id="directMsg">35</span>
                             </span>
                         </li>
 
@@ -628,15 +629,9 @@
                             </span>
                         </li>
 
-                        <li>
-                            <span class="feature-text">Direct Message to Employer</span>
-                            <span class="feature-meta">
-                                <span class="feature-number">25</span>
-                            </span>
-                        </li>
 
                         <li>
-                            <span class="feature-text">150s Upload Video CV</span>
+                            <span class="feature-text">Monitor Employer Job Activity</span>
                             <span class="feature-meta">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
@@ -646,6 +641,7 @@
                                 </svg>
                             </span>
                         </li>
+
 
                         <li>
                             <span class="feature-text">Monitor Employer Job Activity</span>
@@ -808,20 +804,19 @@
                 UploadVideoCV: '150s',
             },
             standard: {
-
                 monthlyApplicationLimit: 150,
                 ApplicationBoosting: 5,
                 DirectMessagetoEmployer: 35,
                 UploadVideoCV: '180s',
             },
-            quarterly: {
-                monthlyApplicationLimit: 'unlimited',
+            premium: {    // ✅ FIXED
+                monthlyApplicationLimit: 'Unlimited',
                 ApplicationBoosting: 10,
                 DirectMessagetoEmployer: 50,
                 UploadVideoCV: '180s',
             }
-
         }
+
 
         const overlay = document.querySelector(".overlay");
         const closeBtn = document.querySelector(".popover-close");
@@ -875,6 +870,7 @@
                 planCards.forEach(c => c.classList.remove("selected"));
                 card.classList.add("selected");
                 currentPlan = card.dataset.plan;
+                updateLeftFeatures(currentPlan);
                 upgradeBtn.textContent = `Upgrade ${capitalize(currentPlan)} – ${capitalize(currentCycle)} plan ➜`;
             });
         });
@@ -890,6 +886,21 @@
 
         // Initial button text
         updatePrices("monthly");
+
+        // Update Left - Side Features Dynamically
+        function updateLeftFeatures(plan) {
+            const data = PlanData[plan];
+
+            document.getElementById("monthlyLimit").textContent = data.monthlyApplicationLimit;
+            document.getElementById("boosting").textContent = data.ApplicationBoosting;
+            document.getElementById("directMsg").textContent = data.DirectMessagetoEmployer;
+
+
+            document.querySelector(".left-title-main").textContent =
+                `What you get on the ${plan.charAt(0).toUpperCase() + plan.slice(1)} Plan`;
+        }
+
+
     </script>
 </body>
 
