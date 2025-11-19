@@ -219,6 +219,9 @@
             padding: 3px;
             margin-bottom: 16px;
             width: fit-content;
+            justify-content: space-between;
+
+
         }
 
         .billing-tab {
@@ -232,9 +235,15 @@
             color: var(--text-muted);
             display: inline-flex;
             align-items: center;
-            gap: 4px;
             white-space: nowrap;
+            position: relative;
+
         }
+
+        .billing-tab:hover {
+            background: #ECFDF3;
+        }
+
 
         .billing-tab.active {
             background: var(--green-dark);
@@ -322,6 +331,23 @@
             border-style: solid;
 
             border: 1px solid #C63C92;
+        }
+
+        .plan-tag-top {
+            font-size: 10px;
+            font-weight: 500;
+            color: #C63C92;
+            background: #FCF3FA;
+            padding: 2px 6px;
+            border-radius: 8px;
+            border: #D95BB0;
+            border-style: solid;
+            border: 1px solid #C63C92;
+            position: absolute;
+            bottom: 25px;
+            left: 10px;
+            width: 56px;
+            height: 18px;
         }
 
         .plan-price-row {
@@ -619,10 +645,14 @@
                         </button>
                         <button class="billing-tab" data-cycle="quarterly">
                             Quarterly
+                            <div class="plan-tag-top" data-field="discount">Save 50%</div>
+
                         </button>
+
                         <button class="billing-tab" data-cycle="yearly">
                             Yearly
-                            <!-- <span class="small-pill">Save 75%</span> -->
+                            <div class="plan-tag-top" data-field="discount">save 75%</div>
+
                         </button>
                     </div>
 
