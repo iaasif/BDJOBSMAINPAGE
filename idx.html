@@ -81,7 +81,7 @@
         /* ===== Left column (desktop) ===== */
         .popover-left {
             flex: 0 0 40%;
-            padding: 32px 28px;
+            padding: 10px 28px;
             border-right: 1px solid var(--border-subtle);
             background: #FCF9F1;
         }
@@ -165,7 +165,7 @@
             padding: 28px 28px 24px;
             display: flex;
             flex-direction: column;
-            min-width: 495px;
+            max-width: 495px;
         }
 
         .pro-header {
@@ -190,6 +190,7 @@
             color: var(--text-muted);
             margin-bottom: 10px;
             max-width: 340px;
+            margin-bottom: 40px;
         }
 
         .save-more {
@@ -426,6 +427,11 @@
             font-weight: 500;
         }
 
+        .plan-per-sm {
+            display: none;
+
+        }
+
         /* ===== Mobile layout ===== */
         @media (max-width: 768px) {
 
@@ -456,21 +462,18 @@
                 justify-content: flex-start;
             }
 
-            /* .plans {
-                flex-direction: row;
-                justify-content: space-between;
-                gap: 16px;
-            } */
-
             .plans {
+                width: 100%;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                /* 3 equal columns */
                 gap: 16px;
+
             }
 
             .plan-card {
-                width: 100%;
+                justify-content: center;
+                width: 78px;
+                padding: 10px 6px 10px 6px;
             }
 
             .plan-tag {
@@ -486,9 +489,23 @@
                 flex-direction: column;
             }
 
+            .plan-per {
+                display: none;
+            }
+
+            .plan-per-sm {
+                display: block;
+                font-size: 12px;
+                color: var(--text-muted);
+            }
+
+
+
+
         }
 
         @media (max-width: 480px) {
+
             .billing-tabs {
                 width: 100%;
                 justify-content: space-between;
@@ -594,11 +611,7 @@
                         With Business, your team will gain access to a wider variety of can’t miss reminders.
                     </p>
 
-                    <div class="save-more">
-                        <span class="save-pill">Save 75%</span>
-                        <span class="save-pill">Save 75%</span>
-                        <span>Save More!</span>
-                    </div>
+
 
                     <div class="billing-tabs" id="billingTabs">
                         <button class="billing-tab active" data-cycle="monthly">
@@ -624,6 +637,8 @@
                                     <div class="plan-price" data-field="price">৳99</div>
                                     <div class="plan-old-price" data-field="oldPrice">৳120</div>
                                     <div class="plan-per" data-field="per">/month</div>
+                                    <div class="plan-per-sm" data-field="per">monthly</div>
+
                                     <div class="plan-tag" data-field="discount">Save 50%</div>
                                 </div>
                             </div>
@@ -644,6 +659,8 @@
                                     <span class="plan-price" data-field="price">৳149</span>
                                     <span class="plan-old-price" data-field="oldPrice">৳180</span>
                                     <span class="plan-per" data-field="per">/month</span>
+                                    <span class="plan-per-sm" data-field="per">monthly</span>
+
                                     <span class="plan-tag" data-field="discount">Save 50%</span>
                                 </div>
                             </div>
@@ -661,6 +678,8 @@
                                     <span class="plan-price" data-field="price">৳149</span>
                                     <span class="plan-old-price" data-field="oldPrice">৳180</span>
                                     <span class="plan-per" data-field="per">/month</span>
+                                    <span class="plan-per-sm" data-field="per">monthly</span>
+
                                     <span class="plan-tag" data-field="discount">Save 50%</span>
                                 </div>
                             </div>
