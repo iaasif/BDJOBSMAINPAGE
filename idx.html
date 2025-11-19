@@ -428,6 +428,7 @@
 
         /* ===== Mobile layout ===== */
         @media (max-width: 768px) {
+
             .popover {
                 /* max-width: 420px;
                 border-radius: 18px; */
@@ -471,6 +472,20 @@
             .plan-card {
                 width: 100%;
             }
+
+            .plan-tag {
+                display: none;
+            }
+
+            .plan-radio {
+                display: none;
+            }
+
+            .plan-price-row {
+                display: flex;
+                flex-direction: column;
+            }
+
         }
 
         @media (max-width: 480px) {
@@ -606,10 +621,10 @@
                                 </div>
 
                                 <div class="plan-price-row">
-                                    <span class="plan-price" data-field="price">৳99</span>
-                                    <span class="plan-old-price" data-field="oldPrice">৳120</span>
-                                    <span class="plan-per" data-field="per">/month</span>
-                                    <span class="plan-tag" data-field="discount">Save 50%</span>
+                                    <div class="plan-price" data-field="price">৳99</div>
+                                    <div class="plan-old-price" data-field="oldPrice">৳120</div>
+                                    <div class="plan-per" data-field="per">/month</div>
+                                    <div class="plan-tag" data-field="discount">Save 50%</div>
                                 </div>
                             </div>
 
