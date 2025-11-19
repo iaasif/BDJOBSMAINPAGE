@@ -629,14 +629,9 @@
                         </li>
 
                         <li>
-                            <span class="feature-text">25 Direct Message to Employer</span>
+                            <span class="feature-text">Direct Message to Employer</span>
                             <span class="feature-meta">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none">
-                                    <path d="M5 14.5C5 14.5 6.5 14.5 8.5 18C8.5 18 14.0588 8.83333 19 7"
-                                        stroke="#667085" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
+                                <span class="feature-number">25</span>
                             </span>
                         </li>
 
@@ -782,12 +777,20 @@
         // ========= PRICING DATA =========
         const pricingData = {
             monthly: {
-                basic: { price: 99, oldPrice: 120, per: "/month", discount: "Save 50%" },
-                standard: { price: 149, oldPrice: 180, per: "/month", discount: "Save 50%" },
-                premium: { price: 149, oldPrice: 180, per: "/month", discount: "Save 50%" }
+                basic: {
+                    price: 99, oldPrice: 120, per: "/month", discount: "Save 50%",
+                },
+                standard: {
+                    price: 149, oldPrice: 180, per: "/month", discount: "Save 50%"
+                },
+                premium: {
+                    price: 149, oldPrice: 180, per: "/month", discount: "Save 50%",
+                }
             },
             quarterly: {
-                basic: { price: 249, oldPrice: 360, per: "/quarter", discount: "Save 60%" },
+                basic: {
+                    price: 249, oldPrice: 360, per: "/quarter", discount: "Save 60%",
+                },
                 standard: { price: 349, oldPrice: 480, per: "/quarter", discount: "Save 60%" },
                 premium: { price: 399, oldPrice: 540, per: "/quarter", discount: "Save 60%" }
             },
@@ -797,6 +800,28 @@
                 premium: { price: 1199, oldPrice: 2160, per: "/year", discount: "Save 75%" }
             }
         };
+        const PlanData = {
+            basic: {
+                monthlyApplicationLimit: 100,
+                ApplicationBoosting: 3,
+                DirectMessagetoEmployer: 25,
+                UploadVideoCV: '150s',
+            },
+            standard: {
+
+                monthlyApplicationLimit: 150,
+                ApplicationBoosting: 5,
+                DirectMessagetoEmployer: 35,
+                UploadVideoCV: '180s',
+            },
+            quarterly: {
+                monthlyApplicationLimit: 'unlimited',
+                ApplicationBoosting: 10,
+                DirectMessagetoEmployer: 50,
+                UploadVideoCV: '180s',
+            }
+
+        }
 
         const overlay = document.querySelector(".overlay");
         const closeBtn = document.querySelector(".popover-close");
