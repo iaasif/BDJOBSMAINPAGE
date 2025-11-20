@@ -220,6 +220,15 @@
             margin-bottom: 16px;
             width: fit-content;
             justify-content: space-between;
+            position: relative;
+        }
+
+        .swing-arrow {
+            position: absolute;
+            width: 110px;
+            right: 0;
+            left: 220px;
+            bottom: 35px;
         }
 
         .billing-tab {
@@ -560,6 +569,10 @@
                 justify-content: space-between;
             }
 
+            .swing-arrow {
+                display: none;
+            }
+
             .billing-tab {
                 flex: 1;
                 justify-content: center;
@@ -591,7 +604,7 @@
             <div class="popover-inner">
                 <!-- LEFT COLUMN (features) -->
                 <div class="popover-left">
-                    <img src="/img-pro.png" class="img-popOver" alt="">
+                    <img src="img-pro.png" class="img-popOver" alt="">
                     <div class="left-title-main">What you get on the Basic Plan</div>
 
                     <ul class="feature-list">
@@ -658,14 +671,15 @@
 
 
 
-                    <a href="https://mybdjobs.bdjobs.com/bdjobs-pro/bdjobs-pro-package-pricing" class="left-link">Learn more</a>
+                    <a href="https://mybdjobs.bdjobs.com/bdjobs-pro/bdjobs-pro-package-pricing" class="left-link">Learn
+                        more</a>
                 </div>
 
                 <!-- RIGHT COLUMN (pricing) -->
                 <div class="popover-right">
                     <div class="pro-header">
                         <div>
-                            <img src="/bdjobs_pro.png" class="logo-pro" alt="">
+                            <img src="bdjobs_pro.png" class="logo-pro" alt="">
                         </div>
 
                     </div>
@@ -690,6 +704,7 @@
                             <div class="plan-tag-top" data-field="discount">save 75%</div>
 
                         </button>
+                        <img src="swingArrow.png" alt="" class="swing-arrow">
                     </div>
 
                     <div class="plans" id="plans">
@@ -757,7 +772,7 @@
 
                     <div class="popover-footer">
                         <button class="primary-btn" id="upgradeBtn">
-                            Upgrade Plan <span class="primary-btn-arrow">➜</span>
+                            Get Bdjobs Pro <span class="primary-btn-arrow">➜</span>
                         </button>
                         <div class="help-text">
                             Need help? <span>09638866444</span> or <span>01897627858</span>
@@ -785,10 +800,10 @@
             },
             quarterly: {
                 basic: {
-                    price: 249, oldPrice: 360, per: "/quarter", discount: "Save 60%",
+                    price: 249, oldPrice: 360, per: "/quarter", discount: "Save 50%"
                 },
-                standard: { price: 349, oldPrice: 480, per: "/quarter", discount: "Save 60%" },
-                premium: { price: 399, oldPrice: 540, per: "/quarter", discount: "Save 60%" }
+                standard: { price: 349, oldPrice: 480, per: "/quarter", discount: "Save 50%" },
+                premium: { price: 399, oldPrice: 540, per: "/quarter", discount: "Save 50%" }
             },
             yearly: {
                 basic: { price: 799, oldPrice: 1440, per: "/year", discount: "Save 75%" },
@@ -809,7 +824,7 @@
                 DirectMessagetoEmployer: 35,
                 UploadVideoCV: '180s',
             },
-            premium: {    // ✅ FIXED
+            premium: {    
                 monthlyApplicationLimit: 'Unlimited',
                 ApplicationBoosting: 10,
                 DirectMessagetoEmployer: 50,
@@ -848,7 +863,10 @@
                 discEl.textContent = data.discount;
             });
 
-            upgradeBtn.textContent = `Upgrade ${capitalize(currentPlan)} – ${capitalize(cycle)} plan ➜`;
+            // upgradeBtn.textContent = `Upgrade ${capitalize(currentPlan)} – ${capitalize(cycle)} plan ➜`;
+            upgradeBtn.textContent = `Get Bdjobs Pro ➜`;
+
+
         }
 
         function capitalize(str) {
@@ -871,7 +889,7 @@
                 card.classList.add("selected");
                 currentPlan = card.dataset.plan;
                 updateLeftFeatures(currentPlan);
-                upgradeBtn.textContent = `Upgrade ${capitalize(currentPlan)} – ${capitalize(currentCycle)} plan ➜`;
+                upgradeBtn.textContent = `Get Bdjobs Pro ➜`;
             });
         });
 
@@ -899,6 +917,36 @@
             document.querySelector(".left-title-main").textContent =
                 `What you get on the ${plan.charAt(0).toUpperCase() + plan.slice(1)} Plan`;
         }
+
+        function getSelectedPlanData() {
+            const cycle = currentCycle;   // monthly | quarterly | yearly
+            const plan = currentPlan;     // basic | standard | premium
+
+            const pricing = pricingData[cycle][plan];
+            const limits = PlanData[plan];
+
+            return {
+                plan: plan,
+                billingCycle: cycle,
+                price: pricing.price,
+                oldPrice: pricing.oldPrice,
+                per: pricing.per,
+                discount: pricing.discount,
+
+                // Plan-specific features  
+                monthlyApplicationLimit: limits.monthlyApplicationLimit,
+                ApplicationBoosting: limits.ApplicationBoosting,
+                DirectMessagetoEmployer: limits.DirectMessagetoEmployer,
+                UploadVideoCV: limits.UploadVideoCV
+            };
+        }
+
+        upgradeBtn.addEventListener("click", () => {
+            const selectedData = getSelectedPlanData();
+            console.log("Selected Plan Data: ", selectedData);
+
+            // 👉 You can now send `selectedData` to backend, popup, redirect, anything.
+        });
 
 
     </script>
