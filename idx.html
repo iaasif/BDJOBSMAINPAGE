@@ -708,7 +708,7 @@
                     </div>
 
                     <div class="plans" id="plans">
-                        <div class="plan-card selected" data-plan="basic">
+                        <div class="plan-card " data-plan="basic">
                             <div class="plan-main">
                                 <div class="plan-name-row">
                                     <span class="plan-name">Basic</span>
@@ -731,7 +731,7 @@
                         </div>
 
 
-                        <div class="plan-card" data-plan="standard">
+                        <div class="plan-card selected" data-plan="standard">
                             <div class="plan-main">
                                 <div class="plan-name-row">
                                     <span class="plan-name">Standard</span>
@@ -824,7 +824,7 @@
                 DirectMessagetoEmployer: 35,
                 UploadVideoCV: '180s',
             },
-            premium: {    
+            premium: {
                 monthlyApplicationLimit: 'Unlimited',
                 ApplicationBoosting: 10,
                 DirectMessagetoEmployer: 50,
@@ -840,7 +840,7 @@
         const upgradeBtn = document.getElementById("upgradeBtn");
 
         let currentCycle = "monthly";
-        let currentPlan = "basic";
+        let currentPlan = "standard";
 
         function formatBDT(value) {
             return "৳" + value;
@@ -904,6 +904,7 @@
 
         // Initial button text
         updatePrices("monthly");
+        updateLeftFeatures("standard");
 
         // Update Left - Side Features Dynamically
         function updateLeftFeatures(plan) {
