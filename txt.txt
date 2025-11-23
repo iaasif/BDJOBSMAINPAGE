@@ -1,0 +1,14 @@
+h- figma simialr 
+w- same 
+padding same 
+border- 1 px // done 
+selected border- 2px solid 
+radio btn possition - figma
+tab- figma 
+font in box --> figma  //done 
+x placement - as figma  
+btn height figma  // done 
+txt size - 2nd context - as figma   // done 
+img size - figma 
+
+left side text size -- as figma || 
