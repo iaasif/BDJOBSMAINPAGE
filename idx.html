@@ -285,7 +285,7 @@
 
         .plan-card {
             border-radius: var(--radius-md);
-            border: 2px solid var(--border-subtle);
+            border: 1px solid var(--border-subtle);
             padding: 10px 12px;
             display: flex;
             align-items: center;
@@ -302,6 +302,7 @@
         }
 
         .plan-card.selected {
+            border: 2px solid;
             border-radius: 8px;
             border-style: solid;
             border-color: var(--green-dark);
@@ -433,7 +434,7 @@
             border: none;
             background: var(--green);
             color: #fff;
-            padding: 12px;
+            padding: 12px 18px;
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
@@ -441,7 +442,7 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
-            height: 44px;
+            height: 48px;
         }
 
         .primary-btn:hover {
@@ -568,20 +569,8 @@
             }
 
             .primary-btn {
-                width: 100%;
-                border-radius: 8px;
-                border: none;
-                background: var(--green);
-                color: #fff;
-                padding: 10px;
-                font-size: 14px;
-                font-weight: 600;
-                cursor: pointer;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                gap: 6px;
-                height: 40px;
+                padding: 10px 14px;
+                height: 34px;
             }
         }
 
