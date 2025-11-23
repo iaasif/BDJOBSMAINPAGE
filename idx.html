@@ -10,7 +10,619 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-     
+        :root {
+            --bg-overlay: rgba(0, 0, 0, 0.55);
+            --white: #ffffff;
+            --text-main: #212121;
+            --text-muted: #616161;
+            --border-subtle: #e0e0e0;
+            --green-dark: #079455;
+            --green: #00a85a;
+            --green-soft: #e5f6ec;
+            --green-dark: #008047;
+            --primary: #2f64a3;
+            --pink: #eb0d74;
+            --radius-lg: 12px;
+            --radius-md: 8px;
+            --shadow-modal: 0 18px 45px rgba(0, 0, 0, 0.24);
+            --hover-card-bg-color: #ECFDF3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f5f5f5;
+        }
+
+        /* ===== Overlay + Modal ===== */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-overlay);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            z-index: 999;
+
+        }
+
+        .popover {
+            background: var(--white);
+            border-radius: 8px;
+            width: fit-content;
+            box-shadow: var(--shadow-modal);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popover-close {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+            border: none;
+            background: transparent;
+            font-size: 30px;
+            cursor: pointer;
+            color: #757575;
+        }
+
+        .popover-inner {
+            display: flex;
+            align-items: flex-start;
+        }
+
+
+        /* ===== Left column (desktop) ===== */
+        .popover-left {
+            flex: 0 0 40%;
+            padding: 10px 28px;
+            border-right: 1px solid var(--border-subtle);
+            background: #FCF9F1;
+        }
+
+        .left-title-main {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .left-title-sub {
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+            font-size: 13px;
+            color: var(--text-main);
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* text left, number/icon right */
+            margin-bottom: 8px;
+        }
+
+        /* left text */
+        .feature-text {
+            flex: 1;
+            font-size: 16px;
+            font-weight: 500;
+            color: #344054;
+
+        }
+
+        /* right side container (number or icon) */
+        .feature-meta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-end;
+            min-width: 40px;
+            /* keeps right side nicely aligned */
+        }
+
+        /* number on right */
+        .feature-number {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* tick icon on right */
+        .feature-check {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid var(--green);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: var(--green);
+        }
+
+
+        .left-link {
+            font-size: 13px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* ===== Right column (content) ===== */
+        .popover-right {
+            flex: 0 0 495px;
+            /* grow:0, shrink:0, basis:495px */
+            width: 495px;
+            padding: 32px;
+            display: flex;
+            /* justify-content: center; */
+
+            flex-direction: column;
+            height: 684px;
+        }
+
+
+        .pro-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 20px;
+            margin-right: 6px;
+        }
+
+        .logo-pro {
+            width: 194px;
+            height: 34px;
+        }
+
+        .pro-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            max-width: 340px;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .save-more {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 11px;
+            color: var(--green-dark);
+            margin-bottom: 8px;
+            gap: 6px;
+        }
+
+        .save-pill {
+            background: #fff2c2;
+            color: #b37a00;
+            border-radius: 999px;
+            padding: 2px 6px;
+            font-weight: 600;
+        }
+
+        /* ===== Billing tabs ===== */
+        .billing-tabs {
+            display: inline-flex;
+            border-radius: 999px;
+            background: #f3f4ff;
+            padding: 3px;
+            margin-bottom: 16px;
+            width: fit-content;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .swing-arrow {
+            position: absolute;
+            width: 110px;
+            right: 0;
+            left: 220px;
+            bottom: 35px;
+        }
+
+        .billing-tab {
+            border: none;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: transparent;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            position: relative;
+
+        }
+
+        .billing-tab:hover {
+            background: #ECFDF3;
+        }
+
+
+        .billing-tab.active {
+            background: var(--green-dark);
+            color: var(--white);
+            box-shadow: 0 0 0 1px #d1ddff;
+        }
+
+        .billing-tab .small-pill {
+            font-size: 10px;
+            padding: 1px 6px 2px;
+            border-radius: 999px;
+            background: var(--green-soft);
+            color: var(--green-dark);
+            font-weight: 600;
+        }
+
+        .billing-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        /* ===== Plan cards ===== */
+        .plans {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .plan-card {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            background: #fafafa;
+            position: relative;
+        }
+
+        .plan-card:hover {
+            border-color: var(--hover-card-bg-color);
+            background: var(--hover-card-bg-color);
+        }
+
+        .plan-card.selected {
+            border: 2px solid;
+            border-radius: 8px;
+            border-style: solid;
+            border-color: var(--green-dark);
+            background: #ECFDF3;
+            box-shadow: 0 0 0 1px #d1ddff;
+        }
+
+        .plan-main {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .plan-name-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 2px;
+        }
+
+        .plan-name {
+            font-size: 18px;
+            font-weight: 500;
+            color: #475467;
+        }
+
+        .plan-tag {
+            font-size: 10px;
+            font-weight: 600;
+            color: #C63C92;
+            background: #FCF3FA;
+            padding: 2px 6px;
+            border-radius: 12px;
+            border: #D95BB0;
+            border-style: solid;
+
+            border: 1px solid #C63C92;
+        }
+
+        .plan-tag-top {
+            font-size: 10px;
+            font-weight: 500;
+            color: #C63C92;
+            background: #FCF3FA;
+            padding: 2px 6px;
+            border-radius: 8px;
+            border: #D95BB0;
+            border-style: solid;
+            border: 1px solid #C63C92;
+            position: absolute;
+            bottom: 25px;
+            left: 10px;
+            width: 56px;
+            height: 18px;
+        }
+
+        .plan-price-row {
+            font-size: 14px;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            color: var(--text-main);
+        }
+
+        .plan-price {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--green-dark);
+        }
+
+        .plan-old-price {
+            font-size: 12px;
+            color: #9e9e9e;
+            text-decoration: line-through;
+        }
+
+        .plan-per {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .plan-radio {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 1px solid var(--border-subtle);
+            /* Light grey border */
+            background: transparent;
+            /* No fill */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: absolute;
+            top: 12px;
+            right: 16px;
+        }
+
+        .plan-radio-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: transparent;
+
+        }
+
+
+        .plan-card.selected .plan-radio {
+            background: var(--green-dark);
+            border-color: var(--green-dark);
+        }
+
+        .plan-card.selected .plan-radio-dot {
+            background: white;
+        }
+
+
+        /* ===== Footer CTA ===== */
+        .popover-footer {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .primary-btn {
+            width: 100%;
+            border-radius: 8px;
+            border: none;
+            background: var(--green);
+            color: #fff;
+            padding: 12px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            height: 48px;
+        }
+
+        .primary-btn:hover {
+            background: var(--green-dark);
+        }
+
+        .primary-btn-arrow {
+            font-size: 14px;
+        }
+
+        .help-text {
+            font-size: 11px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .help-text span {
+            font-weight: 500;
+        }
+
+        .plan-per-sm {
+            display: none;
+
+        }
+
+        /* ===== Mobile layout ===== */
+        @media (max-width: 768px) {
+
+            .popover {
+                max-width: 974px;
+            }
+
+            .popover-inner {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .popover-left {
+                flex: none;
+                border-right: none;
+                border-bottom: 1px solid var(--border-subtle);
+                padding: 20px 18px 16px;
+                background: #fff7fd;
+            }
+
+            .popover-right {
+                padding: 18px 18px 16px 18px;
+            }
+
+            .save-more {
+                justify-content: flex-start;
+            }
+
+            .plans {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+
+            }
+
+            .plan-card {
+                justify-content: center;
+                width: 78px;
+                height: 78px;
+                padding: 10px 18px 10px 18px;
+            }
+
+            .plan-tag {
+                display: none;
+            }
+
+            .plan-radio {
+                display: none;
+            }
+
+            .plan-price-row {
+                display: flex;
+                flex-direction: column;
+                font-size: 30px;
+            }
+
+            .plan-price {
+                font-size: 20px;
+                font-weight: 600;
+                color: var(--green-dark);
+            }
+
+            .plan-per {
+                display: none;
+            }
+
+            .plan-per-sm {
+                display: block;
+                font-size: 12px;
+                color: var(--text-muted);
+            }
+
+            .plan-tag-top {
+                font-size: 10px;
+                font-weight: 500;
+                color: #C63C92;
+                background: #FCF3FA;
+                padding: 2px 6px;
+                border-radius: 8px;
+                border: #D95BB0;
+                border-style: solid;
+                border: 1px solid #C63C92;
+                position: absolute;
+                bottom: 25px;
+                left: 22px;
+                width: 56px;
+                height: 18px;
+            }
+
+            .plan-old-price {
+                display: none;
+            }
+
+            .plan-name {
+                font-size: 12px;
+                color: #475467;
+                font-weight: 500;
+            }
+
+            .primary-btn {
+                padding: 10px 14px;
+                height: 34px;
+            }
+
+
+            .left-title-main {
+                font-size: 14px;
+                font-weight: 600;
+                margin-bottom: 16px;
+                color: var(--text-main);
+            }
+
+
+        }
+
+        @media (max-width: 480px) {
+
+            .billing-tabs {
+                width: 256px;
+                justify-content: space-between;
+            }
+
+            .swing-arrow {
+                display: none;
+            }
+
+            .billing-tab {
+                flex: 1;
+                justify-content: center;
+                padding-inline: 6px;
+                font-size: 11px;
+            }
+
+            .img-popOver {
+                display: none;
+            }
+
+
+        }
+
+        .img-popOver {
+            width: 350px;
+            height: 260px;
+        }
     </style>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,7 +632,7 @@
     <!-- Overlay & Popover -->
     <div class="overlay" role="dialog" aria-modal="true">
         <div class="popover">
-            <!-- <button class="popover-close" aria-label="Close popover">&times;</button> -->
+            <button class="popover-close" aria-label="Close popover">&times;</button>
 
             <div class="popover-inner">
                 <!-- LEFT COLUMN (features) -->
