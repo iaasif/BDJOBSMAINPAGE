@@ -104,7 +104,7 @@
         .feature-list {
             list-style: none;
             padding: 0;
-            margin: 0 0 24px;
+            margin: 0 0 17px;
             font-size: 13px;
             color: var(--text-main);
         }
@@ -117,18 +117,13 @@
         }
 
         .feature-text {
-
             color: var(--colors-text-text-secondary-700, #344054);
-
-            /* Text md/Medium */
             font-family: var(--Font-family-font-family-body, Inter);
             font-size: var(--Font-size-text-md, 16px);
             font-style: normal;
             font-weight: 500;
             line-height: var(--Line-height-text-md, 24px);
-            /* 150% */
             margin: 4px 0px;
-
         }
 
         .feature-meta {
@@ -181,6 +176,7 @@
             flex-direction: column;
             height: 668px;
             margin-bottom: 4px;
+            width: 559px;
         }
 
 
@@ -387,7 +383,7 @@
             position: absolute;
             bottom: 36px;
             left: 18px;
-            width: 74px;
+            width: 94px;
             height: 24px;
         }
 
@@ -539,6 +535,37 @@
         /* ===== Mobile layout ===== */
         @media (max-width: 768px) {
 
+            .help-text {
+                margin-top: 12px;
+                color: var(--colors-text-text-tertiary-600, #475467);
+                text-align: center;
+                font-family: var(--Font-family-font-family-body, Inter);
+                font-size: var(--Font-size-text-xs, 12px);
+                font-style: normal;
+                font-weight: 400;
+                line-height: var(--Line-height-text-xs, 18px);
+            }
+
+            .left-link {
+                font-size: 12px;
+                font-weight: 500;
+            }
+
+            .everything {
+                margin-bottom: 10px;
+            }
+
+            .feature-meta {
+                display: inline-flex;
+                align-items: center;
+                justify-content: flex-start;
+                min-width: 14px;
+            }
+
+            .feature-text {
+                font-size: 14px;
+            }
+
             .billing-tab {
                 border: none;
                 padding: 6px 14px;
@@ -561,15 +588,16 @@
 
             .billing-tabs {
                 display: inline-flex;
+                padding: 0;
                 border-radius: 999px;
                 background: #f3f4ff;
-                padding: 6px;
-                margin-bottom: 20px;
-                width: fit-content;
+                margin-bottom: 10px;
                 justify-content: space-between;
                 position: relative;
-                width: 100%;
-                height: 44px;
+                width: 276px;
+                height: 30px;
+                align-items: center;
+
             }
 
             .pro-subtitle {
@@ -585,16 +613,19 @@
 
             .feature-list li {
                 flex-direction: row-reverse;
+                height: 14px;
+                padding-top: 10px;
+                padding-bottom: 10px;
             }
 
             .popover {
                 max-width: 288px;
-                max-height: 599px;
+                max-height: 650px;
             }
 
             .popover-footer-sm {
                 display: block;
-                padding: 20px 18px 16px;
+                padding: 0px 18px 16px;
                 width: 100%;
             }
 
@@ -645,7 +676,7 @@
                 justify-content: center;
                 width: 78px;
                 height: 78px;
-                padding: 10px 18px 10px 18px;
+                padding: 18px 8px 8px 8px;
                 border: 1px solid #E4E7EC;
             }
 
@@ -709,9 +740,9 @@
             .primary-btn {
                 padding: 10px 14px;
                 height: 34px;
-                width: 100%;
-                height: 48px;
-                padding: 12px 18px;
+                /* height: 48px; */
+                height: 40px;
+                padding: 10px 14px;
                 border-radius: 8px;
                 font-size: 14px;
                 font-weight: 600;
@@ -765,7 +796,7 @@
                 <div class="popover-left">
                     <img src="img-pro.png" class="img-popOver" alt="">
                     <div class="left-title-main">What you get on the Basic Plan</div>
-                    <div class="everything">Everything included</div>
+                    <div class="everything">Limits reset every month</div>
                     <ul class="feature-list">
                         <li>
                             <span class="feature-text">Monthly Application Limit</span>
@@ -783,7 +814,7 @@
                         </li>
 
                         <li>
-                            <span class="feature-text">Jobs Direct Message to Employer</span>
+                            <span class="feature-text">Direct Message to Employer</span>
                             <span class="feature-meta">
                                 <span class="feature-number" id="directMsg">35</span>
                             </span>
@@ -843,7 +874,7 @@
 
                     </div>
                     <p class="pro-subtitle">
-                        With Business, your team will gain access to a wider variety of can’t miss reminders.
+                        A smart assistant for your career journey!
                     </p>
 
 
@@ -854,20 +885,20 @@
                         </button>
                         <button class="billing-tab" data-cycle="quarterly">
                             Quarterly
-                            <div class="plan-tag-top" data-field="discount">Save 50%</div>
+                            <div class="plan-tag-top" data-field="discount">Upto 50% off</div>
 
                         </button>
 
                         <button class="billing-tab" data-cycle="yearly">
                             Yearly
-                            <div class="plan-tag-top" data-field="discount">save 75%</div>
+                            <div class="plan-tag-top" data-field="discount">Upto 75% off</div>
 
                         </button>
                         <img src="swingArrow2.png" alt="" class="swing-arrow">
                     </div>
 
                     <div class="plans" id="plans">
-                        <div class="billing-cycle">Billing cycle</div>
+                        <div class="billing-cycle">Packages</div>
                         <div class="plan-card " data-plan="basic">
                             <div class="plan-main">
                                 <div class="plan-name-row">
