@@ -20,6 +20,7 @@
             --shadow-modal: 0 18px 45px rgba(0, 0, 0, 0.24);
             --blue: #175CD3;
             --blue-light: #B2DDFF;
+            --green: #079455;
 
         }
 
@@ -77,10 +78,11 @@
 
         .popover-left {
             flex: 0 0 40%;
-            padding: 30px;
+            padding: 30px 24px;
             border-right: 1px solid var(--border-subtle);
             background: #FCF9F1;
             height: 668px;
+            padding-top: 0px;
         }
 
         .left-title-main {
@@ -88,6 +90,7 @@
             font-weight: 700;
             margin-bottom: 16px;
             color: var(--text-main);
+            margin-top: 12px;
         }
 
         .left-title-sub {
@@ -114,10 +117,17 @@
         }
 
         .feature-text {
-            flex: 1;
-            font-size: 16px;
+
+            color: var(--colors-text-text-secondary-700, #344054);
+
+            /* Text md/Medium */
+            font-family: var(--Font-family-font-family-body, Inter);
+            font-size: var(--Font-size-text-md, 16px);
+            font-style: normal;
             font-weight: 500;
-            color: #344054;
+            line-height: var(--Line-height-text-md, 24px);
+            /* 150% */
+            margin: 4px 0px;
 
         }
 
@@ -166,10 +176,11 @@
 
 
         .popover-right {
-            padding: 32px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             height: 668px;
+            margin-bottom: 4px;
         }
 
 
@@ -449,7 +460,7 @@
             width: 100%;
             border-radius: 8px;
             border: none;
-            background: var(--pink-normal);
+            background: var(--green);
             color: #fff;
             padding: 12px 18px;
             font-size: 14px;
@@ -463,7 +474,7 @@
         }
 
         .primary-btn:hover {
-            background: var(--pink-normal);
+            background: var(--green);
         }
 
         .primary-btn-arrow {
@@ -471,9 +482,16 @@
         }
 
         .help-text {
-            font-size: 11px;
+            color: var(--colors-text-text-tertiary-600, #475467);
             text-align: center;
-            color: var(--text-muted);
+
+            /* Text sm/Regular */
+            font-family: var(--Font-family-font-family-body, Inter);
+            font-size: var(--Font-size-text-sm, 14px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: var(--Line-height-text-sm, 20px);
+            /* 142.857% */
         }
 
         .help-text span {
@@ -497,6 +515,19 @@
         .img-popOver {
             width: 350px;
             height: 260px;
+        }
+
+        .everything {
+            color: var(--colors-text-text-quaternary-500, #667085);
+
+            /* Text sm/Medium */
+            font-family: var(--Font-family-font-family-body, Inter);
+            font-size: var(--Font-size-text-sm, 14px);
+            font-style: normal;
+            font-weight: 500;
+            line-height: var(--Line-height-text-sm, 20px);
+            /* 142.857% */
+            margin-bottom: 16px;
         }
 
         /* ===== Mobile layout ===== */
@@ -635,7 +666,7 @@
                 <div class="popover-left">
                     <img src="img-pro.png" class="img-popOver" alt="">
                     <div class="left-title-main">What you get on the Basic Plan</div>
-
+                    <div class="everything">Everything included</div>
                     <ul class="feature-list">
                         <li>
                             <span class="feature-text">Monthly Application Limit</span>
