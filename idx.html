@@ -151,11 +151,23 @@
 
 
         .left-link {
-            font-size: 13px;
-            color: var(--primary);
-            text-decoration: none;
+            color: var(--colors-text-text-primary-900, #101828);
+
+            /* Text md/Medium */
+            font-family: var(--Font-family-font-family-body, Inter);
+            font-size: var(--Font-size-text-md, 16px);
+            font-style: normal;
             font-weight: 500;
+            line-height: var(--Line-height-text-md, 24px);
+            /* 150% */
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-skip-ink: auto;
+            text-decoration-thickness: auto;
+            text-underline-offset: auto;
+            text-underline-position: from-font;
         }
+
 
         .popover-right {
             padding: 32px;
@@ -475,6 +487,10 @@
             line-height: var(--Line-height-text-md, 24px);
         }
 
+        .img-popOver {
+            width: 350px;
+            height: 260px;
+        }
 
         /* ===== Mobile layout ===== */
         @media (max-width: 768px) {
@@ -596,12 +612,6 @@
             }
 
         }
-
-
-        .img-popOver {
-            width: 350px;
-            height: 260px;
-        }
     </style>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -683,8 +693,8 @@
 
 
 
-                    <a href="https://mybdjobs.bdjobs.com/bdjobs-pro/bdjobs-pro-package-pricing" class="left-link">Learn
-                        more</a>
+                    <a href="https://mybdjobs.bdjobs.com/bdjobs-pro/bdjobs-pro-package-pricing" class="left-link">See
+                        More</a>
                 </div>
 
                 <!-- RIGHT COLUMN (pricing) -->
