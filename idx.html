@@ -14,17 +14,13 @@
             --white: #ffffff;
             --text-main: #212121;
             --text-muted: #616161;
-            --border-subtle: #e0e0e0;
-            --green-dark: #079455;
-            --green: #00a85a;
-            --green-soft: #e5f6ec;
-            --green-dark: #008047;
-            --primary: #2f64a3;
-            --pink: #eb0d74;
-            --radius-lg: 12px;
+            --pink-fade: #FCF3FA;
+            --pink-normal: #C63C92;
             --radius-md: 8px;
             --shadow-modal: 0 18px 45px rgba(0, 0, 0, 0.24);
-            --hover-card-bg-color: #ECFDF3;
+            --blue: #175CD3;
+            --blue-light: #B2DDFF;
+
         }
 
         * {
@@ -208,7 +204,7 @@
             align-items: center;
             justify-content: flex-end;
             font-size: 11px;
-            color: var(--green-dark);
+            color: var(--pink-normal);
             margin-bottom: 8px;
             gap: 6px;
         }
@@ -249,27 +245,32 @@
             padding: 6px 14px;
             border-radius: 999px;
             background: transparent;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 500;
             cursor: pointer;
-            color: var(--text-muted);
-            display: inline-flex;
-            align-items: center;
             white-space: nowrap;
             position: relative;
             width: 100px;
             height: 34px;
 
+            color: var(--Component-colors-Components-Buttons-Tertiary-button-tertiary-fg, #475467);
+            /* Text sm/Semibold */
+            font-family: var(--Font-family-font-family-body, Inter);
+            font-size: var(--Font-size-text-sm, 14px);
+            font-style: normal;
+            font-weight: 600;
+            line-height: var(--Line-height-text-sm, 20px);
+            /* 142.857% */
 
         }
 
         .billing-tab:hover {
-            background: #ECFDF3;
+            background: var(--pink-fade);
         }
 
 
         .billing-tab.active {
-            background: var(--green-dark);
+            background: var(--pink-normal);
             color: var(--white);
             box-shadow: 0 0 0 1px #d1ddff;
         }
@@ -279,7 +280,7 @@
             padding: 1px 6px 2px;
             border-radius: 999px;
             background: var(--green-soft);
-            color: var(--green-dark);
+            color: var(--pink-normal);
             font-weight: 600;
         }
 
@@ -314,16 +315,16 @@
         }
 
         .plan-card:hover {
-            border-color: var(--hover-card-bg-color);
-            background: var(--hover-card-bg-color);
+            border-color: var(--pink-fade);
+            background: var(--pink-fade);
         }
 
         .plan-card.selected {
             border: 2px solid;
             border-radius: 8px;
             border-style: solid;
-            border-color: var(--green-dark);
-            background: #ECFDF3;
+            border-color: var(--pink-normal);
+            background: var(--pink-fade);
             box-shadow: 0 0 0 1px #d1ddff;
         }
 
@@ -387,7 +388,7 @@
         .plan-price {
             font-size: 24px;
             font-weight: 600;
-            color: var(--green-dark);
+            color: var(--pink-normal);
         }
 
         .plan-old-price {
@@ -426,8 +427,8 @@
 
 
         .plan-card.selected .plan-radio {
-            background: var(--green-dark);
-            border-color: var(--green-dark);
+            background: var(--pink-normal);
+            border-color: var(--pink-normal);
         }
 
         .plan-card.selected .plan-radio-dot {
@@ -461,7 +462,7 @@
         }
 
         .primary-btn:hover {
-            background: var(--green-dark);
+            background: var(--pink-normal);
         }
 
         .primary-btn-arrow {
@@ -559,7 +560,7 @@
             .plan-price {
                 font-size: 20px;
                 font-weight: 600;
-                color: var(--green-dark);
+                color: var(--pink-normal);
             }
 
             .plan-per {
@@ -731,7 +732,7 @@
                             <div class="plan-tag-top" data-field="discount">save 75%</div>
 
                         </button>
-                        <img src="swingArrow.png" alt="" class="swing-arrow">
+                        <img src="swingArrow2.png" alt="" class="swing-arrow">
                     </div>
 
                     <div class="plans" id="plans">
