@@ -215,7 +215,7 @@
             border-radius: 999px;
             background: #f3f4ff;
             padding: 3px;
-            
+
             margin-bottom: 32px;
             width: fit-content;
             justify-content: space-between;
@@ -466,6 +466,16 @@
 
         }
 
+        .billing-cycle {
+            color: var(--colors-text-text-tertiary-600, #475467);
+            font-family: var(--Font-family-font-family-body, Inter);
+            font-size: var(--Font-size-text-md, 16px);
+            font-style: normal;
+            font-weight: 600;
+            line-height: var(--Line-height-text-md, 24px);
+        }
+
+
         /* ===== Mobile layout ===== */
         @media (max-width: 768px) {
 
@@ -581,33 +591,12 @@
                 color: var(--text-main);
             }
 
-
-        }
-
-        @media (max-width: 480px) {
-
-            .billing-tabs {
-                width: 256px;
-                justify-content: space-between;
-            }
-
-            .swing-arrow {
+            .billing-cycle {
                 display: none;
             }
 
-            .billing-tab {
-                flex: 1;
-                justify-content: center;
-                padding-inline: 6px;
-                font-size: 11px;
-            }
-
-            .img-popOver {
-                display: none;
-            }
-
-
         }
+
 
         .img-popOver {
             width: 350px;
@@ -731,6 +720,7 @@
                     </div>
 
                     <div class="plans" id="plans">
+                        <div class="billing-cycle">Billing cycle</div>
                         <div class="plan-card " data-plan="basic">
                             <div class="plan-main">
                                 <div class="plan-name-row">
