@@ -1051,20 +1051,20 @@
                     price: 149, oldPrice: 180, per: "/month", discount: "Save 50%"
                 },
                 premium: {
-                    price: 149, oldPrice: 180, per: "/month", discount: "Save 50%",
+                    price: 199, oldPrice: 180, per: "/month", discount: "Save 50%",
                 }
             },
             quarterly: {
                 basic: {
-                    price: 249, oldPrice: 360, per: "/quarter", discount: "Save 50%"
+                    price: 149, oldPrice: 297, per: "/quarter", discount: "Save 50%"
                 },
-                standard: { price: 349, oldPrice: 480, per: "/quarter", discount: "Save 50%" },
-                premium: { price: 399, oldPrice: 540, per: "/quarter", discount: "Save 50%" }
+                standard: { price: 299, oldPrice: 447, per: "/quarter", discount: "Save 50%" },
+                premium: { price: 399, oldPrice: 597, per: "/quarter", discount: "Save 50%" }
             },
             yearly: {
-                basic: { price: 799, oldPrice: 1440, per: "/year", discount: "Save 75%" },
-                standard: { price: 999, oldPrice: 1800, per: "/year", discount: "Save 75%" },
-                premium: { price: 1199, oldPrice: 2160, per: "/year", discount: "Save 75%" }
+                basic: { price: 299, oldPrice: 1188, per: "/year", discount: "Save 75%" },
+                standard: { price: 599, oldPrice: 1788, per: "/year", discount: "Save 75%" },
+                premium: { price: 799, oldPrice: 2388, per: "/year", discount: "Save 75%" }
             }
         };
         const PlanData = {
@@ -1207,6 +1207,32 @@
                 console.log("Upgrade button clicked");
                 const selectedData = getSelectedPlanData();
                 console.log("Selected Plan Data: ", selectedData);
+
+                // Map plan to pid
+                const pidMap = {
+                    basic: 2,
+                    standard: 3,
+                    premium: 4
+                };
+
+                // Map 'per' to duration d
+                const dMap = {
+                    '/month': 1,
+                    '/quarter': 3,
+                    '/year': 12
+                };
+
+                const pid = pidMap[selectedData.plan];       // 2, 3, 4
+                const d = dMap[selectedData.per];            // 1, 3, 12
+
+                // Construct the payment URL
+                const url = `https://mybdjobs.bdjobs.com/mybdjobs/candidate_package/candidate_package_payment.asp?pid=${pid}&d=${d}`;
+
+                console.log("Redirecting to:", url);
+                // console.log("yo you hony sing", pid, d)
+
+                window.location.href = url;
+
 
             });
         });
