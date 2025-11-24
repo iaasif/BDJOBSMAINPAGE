@@ -84,6 +84,7 @@
             padding: 10px 28px;
             border-right: 1px solid var(--border-subtle);
             background: #FCF9F1;
+            height: 748px;
         }
 
         .left-title-main {
@@ -157,15 +158,10 @@
         }
 
         .popover-right {
-            flex: 0 0 495px;
-            /* grow:0, shrink:0, basis:495px */
-            width: 495px;
             padding: 32px;
             display: flex;
-            /* justify-content: center; */
-
             flex-direction: column;
-            height: 684px;
+            height: 748px;
         }
 
 
@@ -288,7 +284,7 @@
         .plan-card {
             border-radius: var(--radius-md);
             border: 1px solid var(--border-subtle);
-            padding: 10px 12px;
+            padding: 16px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -296,6 +292,7 @@
             transition: all 0.18s ease;
             background: #fafafa;
             position: relative;
+            height: 100px;
         }
 
         .plan-card:hover {
@@ -391,16 +388,14 @@
             height: 12px;
             border-radius: 50%;
             border: 1px solid var(--border-subtle);
-            /* Light grey border */
             background: transparent;
-            /* No fill */
             display: inline-flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
             position: absolute;
-            top: 12px;
-            right: 16px;
+            top: 11px;
+            right: 12px;
         }
 
         .plan-radio-dot {
@@ -488,9 +483,11 @@
                 border-bottom: 1px solid var(--border-subtle);
                 padding: 20px 18px 16px;
                 background: #fff7fd;
+
             }
 
             .popover-right {
+                /* width: 495px; */
                 padding: 18px 18px 16px 18px;
             }
 

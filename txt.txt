@@ -1,8 +1,8 @@
-h- figma simialr 
-w- same 
-padding same 
+h- figma simialr  // done 
+w- same  // done
+padding same  // done 
 border- 1 px // done 
-selected border- 2px solid 
+selected border- 2px solid  // done
 radio btn possition - figma
 tab- figma 
 font in box --> figma  //done 
