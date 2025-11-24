@@ -538,8 +538,56 @@
 
         /* ===== Mobile layout ===== */
         @media (max-width: 768px) {
+
+            .billing-tab {
+                border: none;
+                padding: 6px 14px;
+                border-radius: 999px;
+                background: transparent;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                white-space: nowrap;
+                position: relative;
+                width: 100px;
+                height: 34px;
+                color: var(--Component-colors-Components-Buttons-Tertiary-button-tertiary-fg, #475467);
+                font-family: var(--Font-family-font-family-body, Inter);
+                font-size: var(--Font-size-text-sm, 14px);
+                font-style: normal;
+                font-weight: 600;
+                line-height: var(--Line-height-text-sm, 20px);
+            }
+
+            .billing-tabs {
+                display: inline-flex;
+                border-radius: 999px;
+                background: #f3f4ff;
+                padding: 6px;
+                margin-bottom: 20px;
+                width: fit-content;
+                justify-content: space-between;
+                position: relative;
+                width: 100%;
+                height: 44px;
+            }
+
+            .pro-subtitle {
+                margin-top: 0;
+                padding-top: 0;
+                margin-bottom: 12px;
+            }
+
+            .pro-header {
+                padding-bottom: 12px;
+            }
+
+            .feature-list li {
+                flex-direction: row-reverse;
+            }
+
             .popover {
-                max-width: 974px;
+                max-width: 288px;
                 max-height: 599px;
             }
 
@@ -584,11 +632,9 @@
             }
 
             .plans {
-                width: 100%;
+                width: 276px;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-
             }
 
             .plan-card {
@@ -682,6 +728,20 @@
                 width: 149px;
                 height: 26px;
             }
+
+            .popover-close {
+                height: 44px;
+                width: 44px;
+                padding: 8px;
+                top: 4px;
+                right: 4px;
+
+            }
+
+            .swing-arrow {
+                display: none;
+            }
+
         }
     </style>
     <link rel="stylesheet" href="style.css">
