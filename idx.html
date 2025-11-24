@@ -571,8 +571,8 @@
                 padding: 6px 14px;
                 border-radius: 999px;
                 background: transparent;
-                font-size: 14px;
-                font-weight: 500;
+           
+              
                 cursor: pointer;
                 white-space: nowrap;
                 position: relative;
@@ -580,7 +580,7 @@
                 height: 34px;
                 color: var(--Component-colors-Components-Buttons-Tertiary-button-tertiary-fg, #475467);
                 font-family: var(--Font-family-font-family-body, Inter);
-                font-size: var(--Font-size-text-sm, 14px);
+                font-size: var(--Font-size-text-sm, 12px);
                 font-style: normal;
                 font-weight: 600;
                 line-height: var(--Line-height-text-sm, 20px);
@@ -588,13 +588,13 @@
 
             .billing-tabs {
                 display: inline-flex;
-                padding: 0;
+                padding: 0 6px;
                 border-radius: 999px;
                 background: #f3f4ff;
                 margin-bottom: 10px;
                 justify-content: space-between;
                 position: relative;
-                width: 276px;
+                width: 100%;
                 height: 30px;
                 align-items: center;
 
@@ -619,7 +619,7 @@
             }
 
             .popover {
-                max-width: 288px;
+                min-width: 288px;
                 max-height: 650px;
              
             }
@@ -646,17 +646,16 @@
 
             .popover-left {
                 flex: none;
-
                 border-right: none;
                 border-bottom: 1px solid var(--border-subtle);
                 padding: 20px 18px 16px;
-                background: #fff7fd;
+                background: #ffffff;
                 width: 100%;
                 height: fit-content;
             }
 
             .popover-right {
-                width: 276px;
+                width: 100%;
                 padding: 18px 18px 0px 18px;
                 height: fit-content;
             }
@@ -669,7 +668,6 @@
                 width: 100%;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                padding: 6px;
                 gap: 8px;
                 margin-bottom: 0px;
             }
