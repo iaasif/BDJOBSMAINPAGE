@@ -368,7 +368,7 @@
             border: 1px solid #C63C92;
         }
 
-        .plan-tag-top {
+        .plan-tag-top1 {
             /* New color & text styles */
             color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
             font-size: var(--Font-size-text-xs, 12px);
@@ -382,8 +382,27 @@
 
             position: absolute;
             bottom: 36px;
-            left: 18px;
-            width: 94px;
+            left: 8px;
+            width: 93px;
+            height: 24px;
+        }
+
+        .plan-tag-top2 {
+            /* New color & text styles */
+            color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
+            font-size: var(--Font-size-text-xs, 12px);
+
+            font-weight: 500;
+            line-height: var(--Line-height-text-xs, 18px);
+            background: #EFF8FF;
+            padding: 2px 8px;
+            border-radius: 12px;
+            border: 1px solid #B2DDFF;
+
+            position: absolute;
+            bottom: 36px;
+            left: 8px;
+            width: 93px;
             height: 24px;
         }
 
@@ -537,9 +556,8 @@
 
             .help-text {
                 margin-top: 12px;
-                color: var(--colors-text-text-tertiary-600, #475467);
+                color: #475467;
                 text-align: center;
-                font-family: var(--Font-family-font-family-body, Inter);
                 font-size: var(--Font-size-text-xs, 12px);
                 font-style: normal;
                 font-weight: 400;
@@ -568,11 +586,9 @@
 
             .billing-tab {
                 border: none;
-                padding: 6px 14px;
+                /* padding: 6px 14px; */
                 border-radius: 999px;
                 background: transparent;
-
-
                 cursor: pointer;
                 white-space: nowrap;
                 position: relative;
@@ -584,18 +600,19 @@
                 font-style: normal;
                 font-weight: 600;
                 line-height: 20px;
+                height: 30px;
             }
 
             .billing-tabs {
                 display: inline-flex;
-                padding: 0 6px;
+                padding: 6px;
                 border-radius: 999px;
                 background: #f3f4ff;
                 margin-bottom: 10px;
                 justify-content: space-between;
                 position: relative;
                 width: 100%;
-                height: 30px;
+                height: 42px;
                 align-items: center;
 
             }
@@ -691,7 +708,17 @@
                 top: 2px;
                 bottom: 13px;
                 right: 2px;
+                border: 1px solid #D0D5DD;
 
+
+
+            }
+
+            .plan-radio-dot {
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background: transparent;
 
             }
 
@@ -718,7 +745,7 @@
                 color: var(--text-muted); */
             }
 
-            .plan-tag-top {
+            .plan-tag-top1 {
                 color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
                 font-size: var(--Font-size-text-xs, 10px);
 
@@ -731,7 +758,26 @@
 
                 position: absolute;
                 bottom: 28px;
-                left: 0px;
+                left: 8px;
+                width: 84px;
+                height: 21px;
+
+            }
+
+            .plan-tag-top2 {
+                color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
+                font-size: var(--Font-size-text-xs, 10px);
+
+                font-weight: 500;
+                line-height: var(--Line-height-text-xs, 18px);
+                background: #EFF8FF;
+                padding: 2px 8px;
+                border-radius: 12px;
+                border: 1px solid #B2DDFF;
+
+                position: absolute;
+                bottom: 28px;
+                left: 8px;
                 width: 84px;
                 height: 21px;
 
@@ -895,13 +941,13 @@
                         </button>
                         <button class="billing-tab" data-cycle="quarterly">
                             Quarterly
-                            <div class="plan-tag-top" data-field="discount">Upto 50% off</div>
+                            <div class="plan-tag-top1" data-field="discount">Upto 50% off</div>
 
                         </button>
 
                         <button class="billing-tab" data-cycle="yearly">
                             Yearly
-                            <div class="plan-tag-top" data-field="discount">Upto 75% off</div>
+                            <div class="plan-tag-top2" data-field="discount">Upto 75% off</div>
 
                         </button>
                         <img src="swingArrow2.png" alt="" class="swing-arrow">
