@@ -1018,7 +1018,7 @@
                     </div>
 
                     <div class="popover-footer">
-                        <button class="primary-btn" id="upgradeBtn">
+                        <button class="primary-btn upgradeBtn">
                             Get Bdjobs Pro <span class="primary-btn-arrow">➜</span>
                         </button>
                         <div class="help-text">
@@ -1029,7 +1029,7 @@
 
             </div>
             <div class="popover-footer-sm">
-                <button class="primary-btn" id="upgradeBtn">
+                <button class="primary-btn upgradeBtn">
                     Get Bdjobs Pro <span class="primary-btn-arrow">➜</span>
                 </button>
                 <div class="help-text">
@@ -1093,7 +1093,9 @@
         const closeBtn = document.querySelector(".popover-close");
         const billingTabs = document.querySelectorAll(".billing-tab");
         const planCards = document.querySelectorAll(".plan-card");
-        const upgradeBtn = document.getElementById("upgradeBtn");
+        // const upgradeBtn = document.getElementById("upgradeBtn");
+        const upgradeBtn = document.querySelectorAll(".upgradeBtn");
+
 
         let currentCycle = "monthly";
         let currentPlan = "standard";
@@ -1198,12 +1200,17 @@
             };
         }
 
-        upgradeBtn.addEventListener("click", () => {
-            const selectedData = getSelectedPlanData();
-            console.log("Selected Plan Data: ", selectedData);
 
-            // 👉 You can now send `selectedData` to backend, popup, redirect, anything.
+
+        document.querySelectorAll('.upgradeBtn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                console.log("Upgrade button clicked");
+                const selectedData = getSelectedPlanData();
+                console.log("Selected Plan Data: ", selectedData);
+
+            });
         });
+
 
 
     </script>
