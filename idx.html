@@ -21,6 +21,7 @@
             --blue: #175CD3;
             --blue-light: #B2DDFF;
             --green: #079455;
+            --green-Hover: #067647;
 
         }
 
@@ -167,6 +168,10 @@
             text-decoration-thickness: auto;
             text-underline-offset: auto;
             text-underline-position: from-font;
+        }
+
+        .left-link:hover {
+            color: var(--blue);
         }
 
 
@@ -316,10 +321,12 @@
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
-            transition: all 0.18s ease;
             background: #fafafa;
             position: relative;
             height: 94px;
+            transition: all 0.25s ease-in-out;
+            outline: 0px solid transparent;
+
         }
 
         .plan-card:hover {
@@ -328,12 +335,14 @@
         }
 
         .plan-card.selected {
-            border: 2px solid;
+            outline: 2px solid var(--pink-normal);
             border-radius: 8px;
             border-style: solid;
             border-color: var(--pink-normal);
             background: var(--pink-fade);
             box-shadow: 0 0 0 1px #d1ddff;
+            transform: scale(1.01);
+            padding: 16px 18px;
         }
 
         .plan-main {
@@ -358,9 +367,7 @@
         .plan-tag {
             font-size: 10px;
             font-weight: 600;
-            /* color: #C63C92; */
             color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
-
             background: #EFF8FF;
             padding: 2px 6px;
             border-radius: 12px;
@@ -370,17 +377,14 @@
         }
 
         .plan-tag-top1 {
-            /* New color & text styles */
             color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
             font-size: var(--Font-size-text-xs, 12px);
-
             font-weight: 500;
             line-height: var(--Line-height-text-xs, 18px);
             background: #EFF8FF;
             padding: 2px 8px;
             border-radius: 12px;
             border: 1px solid #B2DDFF;
-
             position: absolute;
             bottom: 36px;
             left: 8px;
@@ -492,7 +496,7 @@
         }
 
         .primary-btn:hover {
-            background: var(--green);
+            background: var(--green-Hover);
         }
 
         .primary-btn-arrow {
