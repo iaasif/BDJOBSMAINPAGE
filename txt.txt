@@ -28,11 +28,11 @@ button hover color change -- done
 .plan-per font size should be 18px --done
 
 Btn -> icon not match  --  done
-X ban 
 
-Taka sign should be bold 
 
-Border on plan box , as figma 
+Taka sign should be bold -- done
+
+Border on plan box , as figma -- done
 
 
 Responsiv
