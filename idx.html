@@ -171,7 +171,7 @@
         }
 
         .left-link:hover {
-            color: var(--blue);
+            color: var(--green);
         }
 
 
@@ -324,8 +324,8 @@
             background: #fafafa;
             position: relative;
             height: 94px;
-            transition: all 0.25s ease-in-out;
-            outline: 0px solid transparent;
+            /* transition: all 0.25s ease; */
+            /* outline: 0px solid transparent; */
 
         }
 
@@ -337,12 +337,14 @@
         .plan-card.selected {
             outline: 2px solid var(--pink-normal);
             border-radius: 8px;
-            border-style: solid;
+            /* border-style: solid; */
             border-color: var(--pink-normal);
             background: var(--pink-fade);
-            box-shadow: 0 0 0 1px #d1ddff;
-            transform: scale(1.01);
-            padding: 16px 18px;
+            /* box-shadow: 0 0 0 1px #d1ddff; */
+            /* transform: scale(1.01); */
+            /* padding: 16px 18px; */
+            /* padding: 14px 16px; */
+
         }
 
         .plan-main {
@@ -377,24 +379,24 @@
         }
 
         .plan-tag-top1 {
-            color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
+            /* color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
             font-size: var(--Font-size-text-xs, 12px);
             font-weight: 500;
             line-height: var(--Line-height-text-xs, 18px);
             background: #EFF8FF;
             padding: 2px 8px;
             border-radius: 12px;
-            border: 1px solid #B2DDFF;
+            border: 1px solid #B2DDFF; */
             position: absolute;
-            bottom: 36px;
-            left: 8px;
-            width: 93px;
-            height: 24px;
+            bottom: 32px;
+            /* left: 8px; */
+            /* width: 93px;
+            height: 24px; */
         }
 
         .plan-tag-top2 {
             /* New color & text styles */
-            color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
+            /* color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
             font-size: var(--Font-size-text-xs, 12px);
 
             font-weight: 500;
@@ -402,13 +404,13 @@
             background: #EFF8FF;
             padding: 2px 8px;
             border-radius: 12px;
-            border: 1px solid #B2DDFF;
+            border: 1px solid #B2DDFF; */
 
             position: absolute;
-            bottom: 36px;
-            left: 8px;
+            bottom: 32px;
+            /* left: 8px;
             width: 93px;
-            height: 24px;
+            height: 24px; */
         }
 
         .plan-price-row {
@@ -751,7 +753,7 @@
             }
 
             .plan-tag-top1 {
-                color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
+                /* color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
                 font-size: var(--Font-size-text-xs, 10px);
 
                 font-weight: 500;
@@ -759,18 +761,18 @@
                 background: #EFF8FF;
                 padding: 2px 8px;
                 border-radius: 12px;
-                border: 1px solid #B2DDFF;
+                border: 1px solid #B2DDFF; */
 
                 position: absolute;
                 bottom: 28px;
-                left: 8px;
-                width: 84px;
-                height: 21px;
+                /* left: 8px; */
+                /* width: 84px;
+                height: 21px; */
 
             }
 
             .plan-tag-top2 {
-                color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
+                /* color: var(--Component-colors-Utility-Blue-utility-blue-700, #175CD3);
                 font-size: var(--Font-size-text-xs, 10px);
 
                 font-weight: 500;
@@ -780,11 +782,11 @@
                 border-radius: 12px;
                 border: 1px solid #B2DDFF;
 
-                position: absolute;
+                position: absolute; */
                 bottom: 28px;
                 left: 8px;
-                width: 84px;
-                height: 21px;
+                /* width: 84px;
+                height: 21px; */
 
             }
 
@@ -946,13 +948,17 @@
                         </button>
                         <button class="billing-tab" data-cycle="quarterly">
                             Quarterly
-                            <div class="plan-tag-top1" data-field="discount">Upto 50% off</div>
+                            <div class="plan-tag-top1" data-field="discount">
+                                <img src="50_Badge.svg" alt="">
+                            </div>
 
                         </button>
 
                         <button class="billing-tab" data-cycle="yearly">
                             Yearly
-                            <div class="plan-tag-top2" data-field="discount">Upto 75% off</div>
+                            <div class="plan-tag-top2" data-field="discount">
+                                <img src="75_ Badge.svg" alt="">
+                            </div>
 
                         </button>
                         <img src="swingArrow2.png" alt="" class="swing-arrow">
