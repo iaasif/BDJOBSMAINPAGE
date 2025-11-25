@@ -562,6 +562,16 @@
 
         /* ===== Mobile layout ===== */
         @media (max-width: 768px) {
+            .badge-50 {
+                width: 62px;
+                height: 23px;
+            }
+
+            .badge-75 {
+                width: 62px;
+                height: 23px;
+            }
+
             .plan-card.selected {
                 outline: 1px solid var(--pink-normal);
                 border-radius: 8px;
@@ -604,6 +614,13 @@
             .feature-text {
                 min-width: 207px;
                 font-size: 14px;
+            }
+
+            .feature-number {
+                min-width: 65px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
             }
 
             .billing-tab {
@@ -715,7 +732,7 @@
                 justify-content: start;
                 width: 100%;
                 height: 78px;
-                padding: 18px 8px 8px 8px;
+                padding: 8px;
                 border: 1px solid #E4E7EC;
             }
 
@@ -965,7 +982,7 @@
                         <button class="billing-tab" data-cycle="quarterly">
                             Quarterly
                             <div class="plan-tag-top1" data-field="discount">
-                                <img src="50_Badge.svg" alt="">
+                                <img class="badge-50" src="50_Badge.svg" alt="">
                             </div>
 
                         </button>
@@ -973,7 +990,7 @@
                         <button class="billing-tab" data-cycle="yearly">
                             Yearly
                             <div class="plan-tag-top2" data-field="discount">
-                                <img src="75_ Badge.svg" alt="">
+                                <img class="badge-75" src="75_ Badge.svg" alt="">
                             </div>
 
                         </button>
