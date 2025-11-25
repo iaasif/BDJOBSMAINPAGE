@@ -12,3 +12,11 @@ txt size - 2nd context - as figma   // done
 img size - figma 
 
 left side text size -- as figma || 
+
+
+------------
+
+see more hover effect blue color -- 
+
+save percentage -- gula change kore dite hobe
+

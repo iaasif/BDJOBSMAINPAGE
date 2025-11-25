@@ -606,7 +606,7 @@
 
             .billing-tabs {
                 display: inline-flex;
-                /* padding: 6px; */
+                padding: 6px;
                 border-radius: 999px;
                 background: #f3f4ff;
                 margin-bottom: 10px;
@@ -1046,26 +1046,23 @@
         const pricingData = {
             monthly: {
                 basic: {
-                    price: 99, oldPrice: 120, per: "/month", discount: "Save 50%",
-                },
+                    price: 99, oldPrice: 120, per: "/month", discount: "Save 50%" },
                 standard: {
-                    price: 149, oldPrice: 180, per: "/month", discount: "Save 50%"
-                },
+                    price: 149, oldPrice: 180, per: "/month", discount: "Save 50%"},
                 premium: {
-                    price: 199, oldPrice: 180, per: "/month", discount: "Save 50%",
-                }
+                    price: 199, oldPrice: 180, per: "/month", discount: "Save 50%"                }
             },
             quarterly: {
                 basic: {
                     price: 149, oldPrice: 297, per: "/quarter", discount: "Save 50%"
                 },
-                standard: { price: 299, oldPrice: 447, per: "/quarter", discount: "Save 50%" },
-                premium: { price: 399, oldPrice: 597, per: "/quarter", discount: "Save 50%" }
+                standard: { price: 299, oldPrice: 447, per: "/quarter", discount: "Save 33%" },
+                premium: { price: 399, oldPrice: 597, per: "/quarter", discount: "Save 33%" }
             },
             yearly: {
                 basic: { price: 299, oldPrice: 1188, per: "/year", discount: "Save 75%" },
-                standard: { price: 599, oldPrice: 1788, per: "/year", discount: "Save 75%" },
-                premium: { price: 799, oldPrice: 2388, per: "/year", discount: "Save 75%" }
+                standard: { price: 599, oldPrice: 1788, per: "/year", discount: "Save 67%" },
+                premium: { price: 799, oldPrice: 2388, per: "/year", discount: "Save 67%" }
             }
         };
         const PlanData = {
