@@ -838,7 +838,7 @@
 
         }
     </style>
-    
+
 </head>
 
 <body>
@@ -1046,11 +1046,14 @@
         const pricingData = {
             monthly: {
                 basic: {
-                    price: 99, oldPrice: 120, per: "/month", discount: "Save 50%" },
+                    price: 99, oldPrice: 120, per: "/month", discount: "Save 50%"
+                },
                 standard: {
-                    price: 149, oldPrice: 180, per: "/month", discount: "Save 50%"},
+                    price: 149, oldPrice: 180, per: "/month", discount: "Save 50%"
+                },
                 premium: {
-                    price: 199, oldPrice: 180, per: "/month", discount: "Save 50%"                }
+                    price: 199, oldPrice: 180, per: "/month", discount: "Save 50%"
+                }
             },
             quarterly: {
                 basic: {
@@ -1112,6 +1115,19 @@
                 const oldPriceEl = card.querySelector('[data-field="oldPrice"]');
                 const perEl = card.querySelector('[data-field="per"]');
                 const discEl = card.querySelector('[data-field="discount"]');
+
+                if (cycle === "monthly") {
+                    // Hide old price & discount for monthly
+                    oldPriceEl.style.display = "none";
+                    discEl.style.display = "none";
+                } else {
+                    // Show them again for quarterly/yearly
+                    oldPriceEl.style.display = "";
+                    discEl.style.display = "";
+
+                    oldPriceEl.textContent = formatBDT(data.oldPrice);
+                    discEl.textContent = data.discount;
+                }
 
                 priceEl.textContent = formatBDT(data.price);
                 oldPriceEl.textContent = formatBDT(data.oldPrice);
