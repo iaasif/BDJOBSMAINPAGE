@@ -503,6 +503,7 @@
 
         .primary-btn-arrow {
             font-size: 14px;
+            padding-top: 2px;
         }
 
         .help-text {
@@ -560,6 +561,18 @@
 
         /* ===== Mobile layout ===== */
         @media (max-width: 768px) {
+            .plan-card.selected {
+                outline: 1px solid var(--pink-normal);
+                border-radius: 8px;
+                /* border-style: solid; */
+                border-color: var(--pink-normal);
+                background: var(--pink-fade);
+                /* box-shadow: 0 0 0 1px #d1ddff; */
+                /* transform: scale(1.01); */
+                /* padding: 16px 18px; */
+                /* padding: 14px 16px; */
+
+            }
 
             .help-text {
                 margin-top: 12px;
@@ -588,6 +601,7 @@
             }
 
             .feature-text {
+                min-width: 207px;
                 font-size: 14px;
             }
 
@@ -627,7 +641,7 @@
             .pro-subtitle {
                 margin-top: 0;
                 padding-top: 0;
-                margin-bottom: 12px;
+                margin-bottom: 24px;
                 font-size: 14px;
             }
 
@@ -764,7 +778,7 @@
                 border: 1px solid #B2DDFF; */
 
                 position: absolute;
-                bottom: 28px;
+                bottom: 24px;
                 /* left: 8px; */
                 /* width: 84px;
                 height: 21px; */
@@ -783,8 +797,9 @@
                 border: 1px solid #B2DDFF;
 
                 position: absolute; */
-                bottom: 28px;
-                left: 8px;
+                bottom: 24px;
+                right: 14px;
+                /* left: 8px; */
                 /* width: 84px;
                 height: 21px; */
 
@@ -1030,7 +1045,7 @@
 
                     <div class="popover-footer">
                         <button class="primary-btn upgradeBtn">
-                            Get Bdjobs Pro <span class="primary-btn-arrow">➜</span>
+                            Get Bdjobs Pro <img class="primary-btn-arrow" src="arrow-icon.svg" alt="">
                         </button>
                         <div class="help-text">
                             Need help? <span>09638866444</span> or <span>01897627858</span>
@@ -1041,7 +1056,7 @@
             </div>
             <div class="popover-footer-sm">
                 <button class="primary-btn upgradeBtn">
-                    Get Bdjobs Pro <span class="primary-btn-arrow">➜</span>
+                    Get Bdjobs Pro <img class="primary-btn-arrow" src="arrow-icon.svg" alt="">
                 </button>
                 <div class="help-text">
                     Need help? <span>09638866444</span> or <span>01897627858</span>

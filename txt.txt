@@ -22,3 +22,18 @@ save percentage -- gula change kore dite hobe -- done
 
 
 button hover color change -- done
+
+
+---------------lijon 
+.plan-per font size should be 18px --done
+
+Btn -> icon not match  --  done
+X ban 
+
+Taka sign should be bold 
+
+Border on plan box , as figma 
+
+
+Responsiv
+left align On text -- done 
