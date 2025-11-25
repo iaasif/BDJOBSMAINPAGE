@@ -16,7 +16,9 @@ left side text size -- as figma ||
 
 ------------
 
-see more hover effect blue color -- 
+see more hover effect blue color --  done
 
-save percentage -- gula change kore dite hobe
+save percentage -- gula change kore dite hobe -- done 
 
+
+button hover color change -- done
