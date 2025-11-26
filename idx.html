@@ -1170,6 +1170,15 @@
             return "৳" + value;
         }
 
+        function resetUpgradeButtons() {
+            upgradeBtns.forEach(btn => {
+                const label = btn.querySelector(".btn-label");
+                btn.disabled = false;
+                btn.classList.remove("is-loading");
+                if (label) label.textContent = "Get Bdjobs Pro";
+            });
+        }
+
         function updatePrices(cycle) {
             currentCycle = cycle;
             planCards.forEach(card => {
@@ -1200,12 +1209,7 @@
                 discEl.textContent = data.discount;
             });
 
-            upgradeBtns.forEach(btn => {
-                const label = btn.querySelector(".btn-label");
-                btn.disabled = false;
-                btn.classList.remove("is-loading");
-                if (label) label.textContent = "Get Bdjobs Pro";
-            });
+            resetUpgradeButtons();
 
 
         }
@@ -1230,12 +1234,7 @@
                 card.classList.add("selected");
                 currentPlan = card.dataset.plan;
                 updateLeftFeatures(currentPlan);
-                upgradeBtns.forEach(btn => {
-                    const label = btn.querySelector(".btn-label");
-                    btn.disabled = false;
-                    btn.classList.remove("is-loading");
-                    if (label) label.textContent = "Get Bdjobs Pro";
-                });
+                resetUpgradeButtons();
             });
         });
 
@@ -1323,6 +1322,13 @@
                 // console.log("yo you hony sing", pid, d)
 
                 window.location.href = url;
+
+                // If navigation is stopped/canceled, restore the button state
+                setTimeout(() => {
+                    if (document.visibilityState === "visible") {
+                        resetUpgradeButtons();
+                    }
+                }, 5000);
 
 
             });
