@@ -1293,11 +1293,11 @@
         upgradeBtns.forEach(btn => {
             btn.addEventListener('click', function () {
                 console.log("Upgrade button clicked");
-                btn.classList.add("is-loading");
-                btn.disabled = true;
+                // btn.classList.add("is-loading");
+                // btn.disabled = true;
 
                 const selectedData = getSelectedPlanData();
-                console.log("Selected Plan Data: ", selectedData);
+                // console.log("Selected Plan Data: ", selectedData);
 
                 // Map plan to pid
                 const pidMap = {
