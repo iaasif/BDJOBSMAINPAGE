@@ -286,7 +286,7 @@
         .billing-tab.active {
             background: var(--pink-normal);
             color: var(--white);
-            box-shadow: 0 0 0 1px #d1ddff;
+            /* box-shadow: 0 0 0 1px #d1ddff; */
         }
 
         .billing-tab .small-pill {
@@ -440,8 +440,8 @@
         }
 
         .plan-radio {
-            width: 12px;
-            height: 12px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             border: 2px solid var(--border-box-color);
             background: transparent;
@@ -450,7 +450,7 @@
             justify-content: center;
             flex-shrink: 0;
             position: absolute;
-            top: 11px;
+            top: 12px;
             right: 12px;
         }
 
@@ -505,6 +505,21 @@
         .primary-btn-arrow {
             font-size: 14px;
             padding-top: 2px;
+            width: 16px;
+            height: 16px;
+            margin-left: 6px;
+        }
+
+        .icon-loading {
+            display: none;
+        }
+
+        .primary-btn.is-loading .icon-arrow {
+            display: none;
+        }
+
+        .primary-btn.is-loading .icon-loading {
+            display: inline-block;
         }
 
         .help-text {
@@ -648,7 +663,7 @@
                 display: inline-flex;
                 padding: 6px;
                 border-radius: 999px;
-                background: #f3f4ff;
+                background: #F9FAFB;
                 margin-bottom: 10px;
                 justify-content: space-between;
                 position: relative;
@@ -1067,7 +1082,9 @@
 
                     <div class="popover-footer">
                         <button class="primary-btn upgradeBtn">
-                            Get Bdjobs Pro <img id="loading" class="primary-btn-arrow" src="arrow-icon.svg" alt="">
+                            <span class="btn-label">Get Bdjobs Pro</span>
+                            <img class="primary-btn-arrow icon-arrow" src="arrow-icon.svg" alt="" aria-hidden="true">
+                            <img class="primary-btn-arrow icon-loading" src="loading.gif" alt="Loading">
                         </button>
                         <div class="help-text">
                             Need help? <span>09638866444</span> or <span>01897627858</span>
@@ -1078,7 +1095,9 @@
             </div>
             <div class="popover-footer-sm">
                 <button class="primary-btn upgradeBtn">
-                    Get Bdjobs Pro <img class="primary-btn-arrow" src="arrow-icon.svg" alt="">
+                    <span class="btn-label">Get Bdjobs Pro</span>
+                    <img class="primary-btn-arrow icon-arrow" src="arrow-icon.svg" alt="" aria-hidden="true">
+                    <img class="primary-btn-arrow icon-loading" src="loading.gif" alt="Loading">
                 </button>
                 <div class="help-text">
                     Need help? <span>09638866444</span> or <span>01897627858</span>
@@ -1141,8 +1160,7 @@
         const closeBtn = document.querySelector(".popover-close");
         const billingTabs = document.querySelectorAll(".billing-tab");
         const planCards = document.querySelectorAll(".plan-card");
-        // const upgradeBtn = document.getElementById("upgradeBtn");
-        const upgradeBtn = document.querySelectorAll(".upgradeBtn");
+        const upgradeBtns = document.querySelectorAll(".upgradeBtn");
 
 
         let currentCycle = "monthly";
@@ -1182,8 +1200,12 @@
                 discEl.textContent = data.discount;
             });
 
-            // upgradeBtn.textContent = `Upgrade ${capitalize(currentPlan)} – ${capitalize(cycle)} plan ➜`;
-            upgradeBtn.textContent = `Get Bdjobs Pro ➜`;
+            upgradeBtns.forEach(btn => {
+                const label = btn.querySelector(".btn-label");
+                btn.disabled = false;
+                btn.classList.remove("is-loading");
+                if (label) label.textContent = "Get Bdjobs Pro";
+            });
 
 
         }
@@ -1208,7 +1230,12 @@
                 card.classList.add("selected");
                 currentPlan = card.dataset.plan;
                 updateLeftFeatures(currentPlan);
-                upgradeBtn.textContent = `Get Bdjobs Pro ➜`;
+                upgradeBtns.forEach(btn => {
+                    const label = btn.querySelector(".btn-label");
+                    btn.disabled = false;
+                    btn.classList.remove("is-loading");
+                    if (label) label.textContent = "Get Bdjobs Pro";
+                });
             });
         });
 
@@ -1263,9 +1290,12 @@
 
 
 
-        document.querySelectorAll('.upgradeBtn').forEach(btn => {
+        upgradeBtns.forEach(btn => {
             btn.addEventListener('click', function () {
                 console.log("Upgrade button clicked");
+                btn.classList.add("is-loading");
+                btn.disabled = true;
+
                 const selectedData = getSelectedPlanData();
                 console.log("Selected Plan Data: ", selectedData);
 
