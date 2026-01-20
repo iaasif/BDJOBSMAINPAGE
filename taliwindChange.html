@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Bdjobs PRO Popover</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="m-0 bg-[#f5f5f5] font-['Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif]">
+
+  <!-- Overlay & Popover -->
+  <div class="fixed inset-0 z-[999] flex items-center justify-center bg-[rgba(0,0,0,0.55)] overlay" role="dialog"
+    aria-modal="true">
+    <div
+      class="relative flex w-fit min-w-[288px] max-h-[650px] flex-col overflow-hidden rounded-[8px] bg-white shadow-[0_18px_45px_rgba(0,0,0,0.24)] md:min-w-0 md:max-h-none pricing-popover">
+
+      <button
+        class="absolute right-1 top-1 h-11 w-11 cursor-pointer border-0 bg-transparent p-2 text-[30px] text-[#757575] md:right-[24px] md:top-[18px] md:h-7 md:w-7 md:p-0 pricing-popover-close"
+        aria-label="Close popover">×</button>
+
+      <div class="flex min-h-0 flex-col-reverse items-stretch pricing-popover-inner md:flex-row md:items-start">
+
+        <!-- LEFT COLUMN (features) -->
+        <div
+          class="w-full border-b border-[#E4E7EC] bg-white p-[20px_18px_16px] pricing-popover-left md:h-[668px] md:flex-[0_0_40%] md:border-b-0 md:border-r md:bg-[#FCF9F1] md:p-[30px_24px] md:pt-0">
+          <img src="img-pro.png" class="hidden h-[260px] w-[350px] img-popOver md:block" alt="">
+
+          <div class="hidden mt-3 text-[18px] font-[700] text-[#212121] left-title-main md:block">
+            What you get on the Standard Plan
+          </div>
+
+          <div class="mb-[10px] text-[14px] font-[500] leading-5 text-[#667085] md:mb-[16px] everything">
+            Limits reset every month
+          </div>
+
+          <ul class="m-0 mb-[17px] list-none p-0 text-[13px] text-[#212121] feature-list">
+            <li
+              class="flex h-[14px] flex-row-reverse items-center justify-between py-[10px] mb-2 md:h-auto md:flex-row md:py-0 feature-item">
+              <span
+                class="my-1 min-w-[207px] text-[14px] font-[500] leading-6 text-[#344054] md:text-[16px] feature-text">
+                Monthly Application Limit
+              </span>
+              <span class="inline-flex min-w-[14px] items-center justify-start md:min-w-[40px] md:justify-end feature-meta">
+                <span
+                  class="flex w-[65px] items-center justify-start text-[14px] font-[600] md:w-auto md:justify-end feature-number"
+                  id="monthlyLimit">150</span>
+              </span>
+            </li>
+
+            <li
+              class="flex h-[14px] flex-row-reverse items-center justify-between py-[10px] mb-2 md:h-auto md:flex-row md:py-0 feature-item">
+              <span
+                class="my-1 min-w-[207px] text-[14px] font-[500] leading-6 text-[#344054] md:text-[16px] feature-text">
+                Jobs Application Boosting
+              </span>
+              <span class="inline-flex min-w-[14px] items-center justify-start md:min-w-[40px] md:justify-end feature-meta">
+                <span
+                  class="flex w-[65px] items-center justify-start text-[14px] font-[600] md:w-auto md:justify-end feature-number"
+                  id="boosting">5</span>
+              </span>
+            </li>
+
+            <li
+              class="flex h-[14px] flex-row-reverse items-center justify-between py-[10px] mb-2 md:h-auto md:flex-row md:py-0 feature-item">
+              <span
+                class="my-1 min-w-[207px] text-[14px] font-[500] leading-6 text-[#344054] md:text-[16px] feature-text">
+                Direct Message to Employer
+              </span>
+              <span class="inline-flex min-w-[14px] items-center justify-start md:min-w-[40px] md:justify-end feature-meta">
+                <span
+                  class="flex w-[65px] items-center justify-start text-[14px] font-[600] md:w-auto md:justify-end feature-number"
+                  id="directMsg">35</span>
+              </span>
+            </li>
+
+            <li
+              class="flex h-[14px] flex-row-reverse items-center justify-between py-[10px] mb-2 md:h-auto md:flex-row md:py-0 feature-item">
+              <span
+                class="my-1 min-w-[207px] text-[14px] font-[500] leading-6 text-[#344054] md:text-[16px] feature-text">
+                Application Insights
+              </span>
+              <span class="inline-flex min-w-[14px] items-center justify-start md:min-w-[40px] md:justify-end feature-meta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 14.5C5 14.5 6.5 14.5 8.5 18C8.5 18 14.0588 8.83333 19 7" stroke="#667085"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+            </li>
+
+            <li
+              class="flex h-[14px] flex-row-reverse items-center justify-between py-[10px] mb-2 md:h-auto md:flex-row md:py-0 feature-item">
+              <span
+                class="my-1 min-w-[207px] text-[14px] font-[500] leading-6 text-[#344054] md:text-[16px] feature-text">
+                Monitor Employer Job Activity
+              </span>
+              <span class="inline-flex min-w-[14px] items-center justify-start md:min-w-[40px] md:justify-end feature-meta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 14.5C5 14.5 6.5 14.5 8.5 18C8.5 18 14.0588 8.83333 19 7" stroke="#667085"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+            </li>
+
+            <li
+              class="flex h-[14px] flex-row-reverse items-center justify-between py-[10px] mb-2 md:h-auto md:flex-row md:py-0 feature-item">
+              <span
+                class="my-1 min-w-[207px] text-[14px] font-[500] leading-6 text-[#344054] md:text-[16px] feature-text">
+                Monitor Employer Job Activity
+              </span>
+              <span class="inline-flex min-w-[14px] items-center justify-start md:min-w-[40px] md:justify-end feature-meta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 14.5C5 14.5 6.5 14.5 8.5 18C8.5 18 14.0588 8.83333 19 7" stroke="#667085"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+            </li>
+          </ul>
+
+          <a href="https://mybdjobs.bdjobs.com/bdjobs-pro/bdjobs-pro-package-pricing"
+            class="text-[#101828] underline underline-offset-auto text-[12px] font-[500] hover:text-[#079455] md:text-[16px] left-link">
+            See More
+          </a>
+        </div>
+
+        <!-- RIGHT COLUMN (pricing) -->
+        <div
+          class="flex w-full max-w-[328px] flex-col p-[18px_18px_0px] pricing-popover-right md:mb-1 md:h-[668px] md:w-[559px] md:max-w-none md:p-[30px]">
+          <div class="mb-[6px] flex items-center pro-header md:pb-1">
+            <div>
+              <img src="bdjobs_pro.png" class="h-[26px] w-[149px] md:h-[34px] md:w-[194px] logo-pro" alt="">
+            </div>
+          </div>
+
+          <p
+            class="mt-0 mb-[34px] max-w-[495px] text-[14px] font-[400] text-[#616161] md:mt-[7px] md:mb-[45px] md:text-[18px] pro-subtitle">
+            A smart assistant for your career journey!
+          </p>
+
+          <div
+            class="relative mb-[10px] flex h-[42px] w-full items-center justify-between rounded-full bg-[#F9FAFB] p-[6px] billing-tabs md:mb-[20px] md:h-[44px] md:w-[334px]"
+            id="billingTabs">
+            <button
+              class="billing-tab flex-1 rounded-full bg-[#C63C92] px-[14px] py-[6px] text-center text-[12px] font-[600] leading-5 text-white md:h-[34px] md:flex-none md:w-[100px] md:text-[14px]"
+              data-cycle="monthly">
+              Monthly
+            </button>
+
+            <button
+              class="billing-tab flex-1 rounded-full bg-transparent px-[14px] py-[6px] text-center text-[12px] font-[600] leading-5 text-[#475467] hover:bg-[#FCF3FA] md:h-[34px] md:flex-none md:w-[100px] md:text-[14px]"
+              data-cycle="quarterly">
+              Quarterly
+              <div class="absolute bottom-[24px] md:bottom-[29px] plan-tag-top1" data-field="discount">
+                <img class="bdjobs-home-pro-info-badge-50 h-[23px] w-[62px] md:h-auto md:w-auto" src="50_Badge.svg"
+                  alt="">
+              </div>
+            </button>
+
+            <button
+              class="billing-tab flex-1 rounded-full bg-transparent px-[14px] py-[6px] text-center text-[12px] font-[600] leading-5 text-[#475467] hover:bg-[#FCF3FA] md:h-[34px] md:flex-none md:w-[100px] md:text-[14px]"
+              data-cycle="yearly">
+              Yearly
+              <div class="absolute bottom-[24px] right-[14px] md:bottom-[29px] md:right-auto plan-tag-top2"
+                data-field="discount">
+                <img class="bdjobs-home-pro-info-badge-75 h-[23px] w-[62px] md:h-auto md:w-auto"
+                  src="75_%20Badge.svg" alt="">
+              </div>
+            </button>
+
+            <img src="swingArrow2.png" alt="" class="hidden absolute bottom-[30px] left-[335px] w-[110px] md:block swing-arrow">
+          </div>
+
+          <div class="plans mb-0 grid grid-cols-3 gap-2 md:mb-4 md:flex md:flex-col md:gap-[10px]" id="plans">
+            <div class="hidden text-[16px] font-[600] leading-6 text-[#475467] md:block billing-cycle">Packages</div>
+
+            <!-- BASIC -->
+            <div
+              class="plan-card relative flex h-[78px] w-full cursor-pointer items-start justify-start rounded-[8px] border border-[#E4E7EC] bg-[#fafafa] p-2 pb-0 hover:border-[#FCF3FA] hover:bg-[#FCF3FA] md:h-[94px] md:items-center md:justify-between md:border-[1.5px] md:p-[14px_16px]"
+              data-plan="basic">
+              <div class="plan-main flex flex-col gap-[3px]">
+                <div class="plan-name-row mb-[2px] flex items-center gap-[6px]">
+                  <span class="plan-name text-[12px] font-[500] text-[#475467] md:text-[18px]">Basic</span>
+                </div>
+
+                <div class="plan-price-row flex flex-col text-[30px] md:flex-row md:items-baseline md:gap-1 md:text-[14px]">
+                  <div class="plan-price h-full text-[20px] font-[600] text-[#C63C92] md:text-[24px]" data-field="price">৳99</div>
+
+                  <div class="plan-old-price hidden text-[18px] text-[#9e9e9e] line-through md:inline-block"
+                    data-field="oldPrice" style="display: none;">৳120</div>
+
+                  <div class="plan-per hidden text-[18px] text-[#616161] md:inline-block" data-field="per">/month</div>
+                  <div class="plan-per-sm hidden" data-field="per">monthly</div>
+
+                  <div
+                    class="plan-tag hidden rounded-[12px] border border-[#B2DDFF] bg-[#EFF8FF] px-[6px] py-[2px] text-[10px] font-[600] text-[#175CD3] md:inline-flex"
+                    data-field="discount" style="display: none;">Save 50%</div>
+                </div>
+              </div>
+
+              <div
+                class="plan-radio absolute right-[2px] top-[2px] flex h-3 w-3 items-center justify-center rounded-full border border-[#D0D5DD] bg-transparent md:right-[12px] md:top-[12px] md:h-4 md:w-4 md:border-2 md:border-[#E4E7EC]">
+                <div class="plan-radio-dot h-1 w-1 rounded-full bg-transparent"></div>
+              </div>
+            </div>
+
+            <!-- STANDARD -->
+            <div
+              class="plan-card plan-card-active relative flex h-[78px] w-full cursor-pointer items-start justify-start rounded-[8px] border border-[#E4E7EC] bg-[#fafafa] p-2 pb-0 hover:border-[#FCF3FA] hover:bg-[#FCF3FA] md:h-[94px] md:items-center md:justify-between md:border-[1.5px] md:p-[14px_16px]"
+              data-plan="standard">
+              <div class="plan-main flex flex-col gap-[3px]">
+                <div class="plan-name-row mb-[2px] flex items-center gap-[6px]">
+                  <span class="plan-name text-[12px] font-[500] text-[#475467] md:text-[18px]">Standard</span>
+                </div>
+
+                <div class="plan-price-row flex flex-col text-[30px] md:flex-row md:items-baseline md:gap-1 md:text-[14px]">
+                  <span class="plan-price h-full text-[20px] font-[600] text-[#C63C92] md:text-[24px]" data-field="price">৳149</span>
+
+                  <span class="plan-old-price hidden text-[18px] text-[#9e9e9e] line-through md:inline-block"
+                    data-field="oldPrice" style="display: none;">৳180</span>
+
+                  <span class="plan-per hidden text-[18px] text-[#616161] md:inline-block" data-field="per">/month</span>
+                  <span class="plan-per-sm hidden" data-field="per">monthly</span>
+
+                  <span
+                    class="plan-tag hidden rounded-[12px] border border-[#B2DDFF] bg-[#EFF8FF] px-[6px] py-[2px] text-[10px] font-[600] text-[#175CD3] md:inline-flex"
+                    data-field="discount" style="display: none;">Save 50%</span>
+                </div>
+              </div>
+
+              <div
+                class="plan-radio absolute right-[2px] top-[2px] flex h-3 w-3 items-center justify-center rounded-full border border-[#D0D5DD] bg-transparent md:right-[12px] md:top-[12px] md:h-4 md:w-4 md:border-2 md:border-[#E4E7EC]">
+                <div class="plan-radio-dot h-1 w-1 rounded-full bg-transparent"></div>
+              </div>
+            </div>
+
+            <!-- PREMIUM -->
+            <div
+              class="plan-card relative flex h-[78px] w-full cursor-pointer items-start justify-start rounded-[8px] border border-[#E4E7EC] bg-[#fafafa] p-2 pb-0 hover:border-[#FCF3FA] hover:bg-[#FCF3FA] md:h-[94px] md:items-center md:justify-between md:border-[1.5px] md:p-[14px_16px]"
+              data-plan="premium">
+              <div class="plan-main flex flex-col gap-[3px]">
+                <div class="plan-name-row mb-[2px] flex items-center gap-[6px]">
+                  <span class="plan-name text-[12px] font-[500] text-[#475467] md:text-[18px]">Premium</span>
+                </div>
+
+                <div class="plan-price-row flex flex-col text-[30px] md:flex-row md:items-baseline md:gap-1 md:text-[14px]">
+                  <span class="plan-price h-full text-[20px] font-[600] text-[#C63C92] md:text-[24px]" data-field="price">৳199</span>
+
+                  <span class="plan-old-price hidden text-[18px] text-[#9e9e9e] line-through md:inline-block"
+                    data-field="oldPrice" style="display: none;">৳180</span>
+
+                  <span class="plan-per hidden text-[18px] text-[#616161] md:inline-block" data-field="per">/month</span>
+                  <span class="plan-per-sm hidden" data-field="per">monthly</span>
+
+                  <span
+                    class="plan-tag hidden rounded-[12px] border border-[#B2DDFF] bg-[#EFF8FF] px-[6px] py-[2px] text-[10px] font-[600] text-[#175CD3] md:inline-flex"
+                    data-field="discount" style="display: none;">Save 50%</span>
+                </div>
+              </div>
+
+              <div
+                class="plan-radio absolute right-[2px] top-[2px] flex h-3 w-3 items-center justify-center rounded-full border border-[#D0D5DD] bg-transparent md:right-[12px] md:top-[12px] md:h-4 md:w-4 md:border-2 md:border-[#E4E7EC]">
+                <div class="plan-radio-dot h-1 w-1 rounded-full bg-transparent"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop footer -->
+          <div class="mt-auto hidden flex-col gap-2 md:flex pricing-popover-footer">
+            <button
+              class="primary-btn upgradeBtn inline-flex h-12 w-full items-center justify-center gap-[6px] rounded-[8px] border-0 bg-[#079455] px-[18px] py-3 text-[14px] font-[600] text-white hover:bg-[#067647]">
+              <span class="btn-label">Get Bdjobs Pro</span>
+              <img class="primary-btn-arrow icon-arrow ml-[6px] h-4 w-4 pt-[2px]" src="arrow-icon.svg" alt=""
+                aria-hidden="true">
+              <img class="primary-btn-arrow icon-loading ml-[6px] h-4 w-4 pt-[2px] hidden" src="loading.gif"
+                alt="Loading">
+            </button>
+            <div class="help-text text-center text-[14px] font-[400] leading-5 text-[#475467]">
+              Need help? <span class="font-[500]">09638866444</span> or <span class="font-[500]">01897627858</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile footer -->
+      <div class="block w-full px-[18px] pb-4 md:hidden pricing-popover-footer-sm">
+        <button
+          class="primary-btn upgradeBtn inline-flex h-10 w-full items-center justify-center gap-[6px] rounded-[8px] border-0 bg-[#079455] px-[14px] py-[10px] text-[14px] font-[600] text-white hover:bg-[#067647]">
+          <span class="btn-label">Get Bdjobs Pro</span>
+          <img class="primary-btn-arrow icon-arrow ml-[6px] h-4 w-4 pt-[2px]" src="arrow-icon.svg" alt=""
+            aria-hidden="true">
+          <img class="primary-btn-arrow icon-loading ml-[6px] h-4 w-4 pt-[2px] hidden" src="loading.gif"
+            alt="Loading">
+        </button>
+        <div class="help-text mt-3 text-center text-[12px] font-[400] leading-[18px] text-[#475467]">
+          Need help? <span class="font-[500]">09638866444</span> or <span class="font-[500]">01897627858</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // ========= PRICING DATA =========
+    const pricingData = {
+      monthly: {
+        basic: { price: 99, oldPrice: 120, per: "/month", discount: "Save 50%" },
+        standard: { price: 149, oldPrice: 180, per: "/month", discount: "Save 50%" },
+        premium: { price: 199, oldPrice: 180, per: "/month", discount: "Save 50%" }
+      },
+      quarterly: {
+        basic: { price: 149, oldPrice: 297, per: "/quarter", discount: "Save 50%" },
+        standard: { price: 299, oldPrice: 447, per: "/quarter", discount: "Save 33%" },
+        premium: { price: 399, oldPrice: 597, per: "/quarter", discount: "Save 33%" }
+      },
+      yearly: {
+        basic: { price: 299, oldPrice: 1188, per: "/year", discount: "Save 75%" },
+        standard: { price: 599, oldPrice: 1788, per: "/year", discount: "Save 67%" },
+        premium: { price: 799, oldPrice: 2388, per: "/year", discount: "Save 67%" }
+      }
+    };
+
+    const PlanData = {
+      basic: { monthlyApplicationLimit: 100, ApplicationBoosting: 3, DirectMessagetoEmployer: 25, UploadVideoCV: '150s' },
+      standard: { monthlyApplicationLimit: 150, ApplicationBoosting: 5, DirectMessagetoEmployer: 35, UploadVideoCV: '180s' },
+      premium: { monthlyApplicationLimit: 'Unlimited', ApplicationBoosting: 10, DirectMessagetoEmployer: 50, UploadVideoCV: '180s' }
+    };
+
+    const overlay = document.querySelector(".overlay");
+    const closeBtn = document.querySelector(".pricing-popover-close");
+    const billingTabs = document.querySelectorAll(".billing-tab");
+    const planCards = document.querySelectorAll(".plan-card");
+    const upgradeBtns = document.querySelectorAll(".upgradeBtn");
+
+    let currentCycle = "monthly";
+    let currentPlan = "standard";
+
+    function formatBDT(value) {
+      return "৳" + value;
+    }
+
+    function setBillingTabActive(activeTab) {
+      billingTabs.forEach(tab => {
+        const isActive = tab === activeTab;
+        tab.classList.toggle("bg-[#C63C92]", isActive);
+        tab.classList.toggle("text-white", isActive);
+
+        tab.classList.toggle("bg-transparent", !isActive);
+        tab.classList.toggle("text-[#475467]", !isActive);
+      });
+    }
+
+    function setPlanActive(activeCard) {
+      planCards.forEach(card => {
+        const isActive = card === activeCard;
+
+        // card container active styles
+        card.classList.toggle("bg-[#FCF3FA]", isActive);
+        card.classList.toggle("border-[#C63C92]", isActive);
+        card.classList.toggle("outline", isActive);
+        card.classList.toggle("outline-[#C63C92]", isActive);
+
+        // outline width differs on mobile vs desktop
+        if (isActive) {
+          card.classList.add("outline-[1px]", "md:outline-[1.5px]");
+        } else {
+          card.classList.remove("outline-[1px]", "md:outline-[1.5px]");
+        }
+
+        // radio active styles
+        const radio = card.querySelector(".plan-radio");
+        const dot = card.querySelector(".plan-radio-dot");
+        if (radio && dot) {
+          radio.classList.toggle("bg-[#C63C92]", isActive);
+          radio.classList.toggle("border-[#C63C92]", isActive);
+          dot.classList.toggle("bg-white", isActive);
+        }
+      });
+    }
+
+    function updatePrices(cycle) {
+      currentCycle = cycle;
+
+      planCards.forEach(card => {
+        const planKey = card.dataset.plan;
+        const data = pricingData[cycle][planKey];
+
+        const priceEl = card.querySelector('[data-field="price"]');
+        const oldPriceEl = card.querySelector('[data-field="oldPrice"]');
+        const perEl = card.querySelector('[data-field="per"]');
+        const discEl = card.querySelector('[data-field="discount"]');
+
+        if (cycle === "monthly") {
+          oldPriceEl.style.display = "none";
+          discEl.style.display = "none";
+        } else {
+          oldPriceEl.style.display = "";
+          discEl.style.display = "";
+
+          oldPriceEl.textContent = formatBDT(data.oldPrice);
+          discEl.textContent = data.discount;
+        }
+
+        priceEl.textContent = formatBDT(data.price);
+        oldPriceEl.textContent = formatBDT(data.oldPrice);
+        perEl.textContent = data.per;
+        discEl.textContent = data.discount;
+      });
+
+      upgradeBtns.forEach(btn => {
+        const label = btn.querySelector(".btn-label");
+        btn.disabled = false;
+        btn.classList.remove("is-loading");
+        if (label) label.textContent = "Get Bdjobs Pro";
+      });
+    }
+
+    // Billing tab click
+    billingTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        setBillingTabActive(tab);
+        updatePrices(tab.dataset.cycle);
+      });
+    });
+
+    // Plan card click
+    planCards.forEach(card => {
+      card.addEventListener("click", () => {
+        setPlanActive(card);
+        currentPlan = card.dataset.plan;
+        updateLeftFeatures(currentPlan);
+
+        upgradeBtns.forEach(btn => {
+          const label = btn.querySelector(".btn-label");
+          btn.disabled = false;
+          btn.classList.remove("is-loading");
+          if (label) label.textContent = "Get Bdjobs Pro";
+        });
+      });
+    });
+
+    // Close popover
+    closeBtn.addEventListener("click", () => {
+      overlay.style.display = "none";
+    });
+
+    overlay.addEventListener("click", e => {
+      if (e.target === overlay) overlay.style.display = "none";
+    });
+
+    // Update Left - Side Features Dynamically
+    function updateLeftFeatures(plan) {
+      const data = PlanData[plan];
+
+      document.getElementById("monthlyLimit").textContent = data.monthlyApplicationLimit;
+      document.getElementById("boosting").textContent = data.ApplicationBoosting;
+      document.getElementById("directMsg").textContent = data.DirectMessagetoEmployer;
+
+      document.querySelector(".left-title-main").textContent =
+        `What you get on the ${plan.charAt(0).toUpperCase() + plan.slice(1)} Plan`;
+    }
+
+    function getSelectedPlanData() {
+      const cycle = currentCycle;   // monthly | quarterly | yearly
+      const plan = currentPlan;     // basic | standard | premium
+
+      const pricing = pricingData[cycle][plan];
+      const limits = PlanData[plan];
+
+      return {
+        plan: plan,
+        billingCycle: cycle,
+        price: pricing.price,
+        oldPrice: pricing.oldPrice,
+        per: pricing.per,
+        discount: pricing.discount,
+
+        monthlyApplicationLimit: limits.monthlyApplicationLimit,
+        ApplicationBoosting: limits.ApplicationBoosting,
+        DirectMessagetoEmployer: limits.DirectMessagetoEmployer,
+        UploadVideoCV: limits.UploadVideoCV
+      };
+    }
+
+    upgradeBtns.forEach(btn => {
+      btn.addEventListener('click', function () {
+        const selectedData = getSelectedPlanData();
+
+        const pidMap = { basic: 2, standard: 3, premium: 4 };
+        const dMap = { '/month': 1, '/quarter': 3, '/year': 12 };
+
+        const pid = pidMap[selectedData.plan];
+        const d = dMap[selectedData.per];
+
+        const url = `https://mybdjobs.bdjobs.com/mybdjobs/candidate_package/candidate_package_payment.asp?pid=${pid}&d=${d}`;
+        window.location.href = url;
+      });
+    });
+
+    // Initial state
+    updatePrices("monthly");
+    updateLeftFeatures("standard");
+    setBillingTabActive(document.querySelector('.billing-tab[data-cycle="monthly"]'));
+    setPlanActive(document.querySelector('.plan-card[data-plan="standard"]'));
+  </script>
+</body>
+
+</html>

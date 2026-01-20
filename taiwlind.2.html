@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Tailwind CDN (for quick use) -->
+
+<!-- Overlay & Popover -->
+<div
+  class="fixed inset-0 z-[999] flex items-center justify-center bg-[rgba(0,0,0,0.55)] overlay"
+  role="dialog"
+  aria-modal="true"
+>
+  <div
+    class="relative flex w-fit flex-col overflow-hidden rounded-[8px] bg-white shadow-[0_18px_45px_rgba(0,0,0,0.24)] pricing-popover"
+  >
+    <button
+      class="absolute top-[18px] right-[24px] h-[28px] w-[28px] cursor-pointer border-0 bg-transparent text-[30px] text-[#757575] pricing-popover-close
+             md:top-[18px] md:right-[24px]
+             max-md:top-[4px] max-md:right-[4px] max-md:h-[44px] max-md:w-[44px] max-md:p-[8px]"
+      aria-label="Close popover"
+    >
+      ×
+    </button>
+
+    <div class="flex items-start pricing-popover-inner max-md:flex-col-reverse max-md:min-h-auto">
+      <!-- LEFT COLUMN (features) -->
+      <div
+        class="flex-[0_0_40%] border-r border-[#E4E7EC] bg-[#FCF9F1] p-[30px_24px] pt-0 h-[668px] pricing-popover-left
+               max-md:flex-none max-md:w-full max-md:h-fit max-md:border-r-0 max-md:border-b max-md:border-[#E4E7EC]
+               max-md:bg-white max-md:p-[20px_18px_16px]"
+      >
+        <img
+          src="img-pro.png"
+          class="w-[350px] h-[260px] img-popOver max-md:hidden"
+          alt=""
+        />
+
+        <div
+          class="mt-[12px] mb-[16px] text-[18px] font-[700] text-[#212121] left-title-main max-md:hidden"
+        >
+          What you get on the Standard Plan
+        </div>
+
+        <div
+          class="mb-[16px] text-[14px] font-[500] leading-[20px] text-[#667085] everything max-md:mb-[10px]"
+        >
+          Limits reset every month
+        </div>
+
+        <ul class="m-0 mb-[17px] list-none p-0 text-[13px] text-[#212121] feature-list">
+          <li
+            class="mb-2 flex items-center justify-between feature-item
+                   max-md:flex-row-reverse max-md:h-[14px] max-md:py-[10px]"
+          >
+            <span
+              class="my-[4px] text-[#344054] text-[16px] font-[500] leading-[24px] feature-text
+                     max-md:min-w-[207px] max-md:text-[14px]"
+            >
+              Monthly Application Limit
+            </span>
+            <span
+              class="inline-flex min-w-[40px] items-center justify-end feature-meta
+                     max-md:min-w-[14px] max-md:justify-start"
+            >
+              <span
+                id="monthlyLimit"
+                class="font-[600] text-right feature-number
+                       max-md:flex max-md:w-[65px] max-md:items-center max-md:justify-start max-md:text-[14px]"
+              >
+                150
+              </span>
+            </span>
+          </li>
+
+          <li
+            class="mb-2 flex items-center justify-between feature-item
+                   max-md:flex-row-reverse max-md:h-[14px] max-md:py-[10px]"
+          >
+            <span
+              class="my-[4px] text-[#344054] text-[16px] font-[500] leading-[24px] feature-text
+                     max-md:min-w-[207px] max-md:text-[14px]"
+            >
+              Jobs Application Boosting
+            </span>
+            <span
+              class="inline-flex min-w-[40px] items-center justify-end feature-meta
+                     max-md:min-w-[14px] max-md:justify-start"
+            >
+              <span
+                id="boosting"
+                class="font-[600] text-right feature-number
+                       max-md:flex max-md:w-[65px] max-md:items-center max-md:justify-start max-md:text-[14px]"
+              >
+                5
+              </span>
+            </span>
+          </li>
+
+          <li
+            class="mb-2 flex items-center justify-between feature-item
+                   max-md:flex-row-reverse max-md:h-[14px] max-md:py-[10px]"
+          >
+            <span
+              class="my-[4px] text-[#344054] text-[16px] font-[500] leading-[24px] feature-text
+                     max-md:min-w-[207px] max-md:text-[14px]"
+            >
+              Direct Message to Employer
+            </span>
+            <span
+              class="inline-flex min-w-[40px] items-center justify-end feature-meta
+                     max-md:min-w-[14px] max-md:justify-start"
+            >
+              <span
+                id="directMsg"
+                class="font-[600] text-right feature-number
+                       max-md:flex max-md:w-[65px] max-md:items-center max-md:justify-start max-md:text-[14px]"
+              >
+                35
+              </span>
+            </span>
+          </li>
+
+          <li
+            class="mb-2 flex items-center justify-between feature-item
+                   max-md:flex-row-reverse max-md:h-[14px] max-md:py-[10px]"
+          >
+            <span
+              class="my-[4px] text-[#344054] text-[16px] font-[500] leading-[24px] feature-text
+                     max-md:min-w-[207px] max-md:text-[14px]"
+            >
+              Application Insights
+            </span>
+            <span
+              class="inline-flex min-w-[40px] items-center justify-end feature-meta
+                     max-md:min-w-[14px] max-md:justify-start"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5 14.5C5 14.5 6.5 14.5 8.5 18C8.5 18 14.0588 8.83333 19 7"
+                  stroke="#667085"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </span>
+          </li>
+
+          <li
+            class="mb-2 flex items-center justify-between feature-item
+                   max-md:flex-row-reverse max-md:h-[14px] max-md:py-[10px]"
+          >
+            <span
+              class="my-[4px] text-[#344054] text-[16px] font-[500] leading-[24px] feature-text
+                     max-md:min-w-[207px] max-md:text-[14px]"
+            >
+              Monitor Employer Job Activity
+            </span>
+            <span
+              class="inline-flex min-w-[40px] items-center justify-end feature-meta
+                     max-md:min-w-[14px] max-md:justify-start"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5 14.5C5 14.5 6.5 14.5 8.5 18C8.5 18 14.0588 8.83333 19 7"
+                  stroke="#667085"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </span>
+          </li>
+
+          <li
+            class="mb-2 flex items-center justify-between feature-item
+                   max-md:flex-row-reverse max-md:h-[14px] max-md:py-[10px]"
+          >
+            <span
+              class="my-[4px] text-[#344054] text-[16px] font-[500] leading-[24px] feature-text
+                     max-md:min-w-[207px] max-md:text-[14px]"
+            >
+              Monitor Employer Job Activity
+            </span>
+            <span
+              class="inline-flex min-w-[40px] items-center justify-end feature-meta
+                     max-md:min-w-[14px] max-md:justify-start"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5 14.5C5 14.5 6.5 14.5 8.5 18C8.5 18 14.0588 8.83333 19 7"
+                  stroke="#667085"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </span>
+          </li>
+        </ul>
+
+        <a
+          href="https://mybdjobs.bdjobs.com/bdjobs-pro/bdjobs-pro-package-pricing"
+          class="text-[#101828] underline text-[16px] font-[500] leading-[24px] hover:text-[#079455] left-link
+                 max-md:text-[12px]"
+        >
+          See More
+        </a>
+      </div>
+
+      <!-- RIGHT COLUMN (pricing) -->
+      <div class="flex h-[668px] w-[559px] flex-col p-[30px] mb-1 pricing-popover-right
+                  max-md:h-fit max-md:w-full max-md:max-w-[328px] max-md:p-[18px_18px_0px]">
+        <div class="mb-[6px] flex items-center pro-header max-md:pb-1">
+          <div>
+            <img
+              src="bdjobs_pro.png"
+              class="w-[194px] h-[34px] logo-pro max-md:w-[149px] max-md:h-[26px]"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <p class="mt-[7px] mb-[45px] max-w-[495px] text-[18px] font-[400] text-[#616161] pro-subtitle
+                  max-md:mt-0 max-md:pt-0 max-md:mb-[34px] max-md:text-[14px]">
+          A smart assistant for your career journey!
+        </p>
+
+        <div
+          class="relative mb-[20px] inline-flex h-[44px] w-[334px] justify-between rounded-full bg-[#F9FAFB] p-[6px] billing-tabs
+                 max-md:mb-[10px] max-md:h-[42px] max-md:w-full max-md:items-center"
+          id="billingTabs"
+        >
+          <button
+            class="relative h-[34px] w-[100px] whitespace-nowrap rounded-full border-0 bg-[#C63C92] px-[14px] py-[6px]
+                   text-[14px] font-[600] leading-[20px] text-white cursor-pointer billing-tab billing-tab-active
+                   hover:bg-[#C63C92]
+                   max-md:h-[30px] max-md:text-[12px]"
+            data-cycle="monthly"
+          >
+            Monthly
+          </button>
+
+          <button
+            class="relative h-[34px] w-[100px] whitespace-nowrap rounded-full border-0 bg-transparent px-[14px] py-[6px]
+                   text-[14px] font-[600] leading-[20px] text-[#475467] cursor-pointer billing-tab
+                   hover:bg-[#FCF3FA]
+                   max-md:h-[30px] max-md:text-[12px]"
+            data-cycle="quarterly"
+          >
+            Quarterly
+            <div class="absolute bottom-[29px] plan-tag-top1 max-md:bottom-[24px]" data-field="discount">
+              <img class="bdjobs-home-pro-info-badge-50" src="50_Badge.svg" alt="" />
+            </div>
+          </button>
+
+          <button
+            class="relative h-[34px] w-[100px] whitespace-nowrap rounded-full border-0 bg-transparent px-[14px] py-[6px]
+                   text-[14px] font-[600] leading-[20px] text-[#475467] cursor-pointer billing-tab
+                   hover:bg-[#FCF3FA]
+                   max-md:h-[30px] max-md:text-[12px]"
+            data-cycle="yearly"
+          >
+            Yearly
+            <div class="absolute bottom-[29px] plan-tag-top2 max-md:bottom-[24px] max-md:right-[14px]" data-field="discount">
+              <img class="bdjobs-home-pro-info-badge-75" src="75_%20Badge.svg" alt="" />
+            </div>
+          </button>
+
+          <img
+            src="swingArrow2.png"
+            alt=""
+            class="absolute bottom-[30px] left-[335px] w-[110px] swing-arrow max-md:hidden"
+          />
+        </div>
+
+        <div class="plans mb-[16px] flex flex-col gap-[10px] max-md:mb-0 max-md:grid max-md:grid-cols-3 max-md:gap-[8px]" id="plans">
+          <div class="text-[16px] font-[600] leading-[24px] text-[#475467] billing-cycle max-md:hidden">Packages</div>
+
+          <!-- Basic -->
+          <div
+            class="relative flex h-[94px] cursor-pointer items-center justify-between rounded-[8px] border-[1.5px] border-[#E4E7EC]
+                   bg-[#fafafa] p-[14px_16px] plan-card hover:border-[#FCF3FA] hover:bg-[#FCF3FA]
+                   max-md:h-[78px] max-md:justify-start max-md:border max-md:border-[#E4E7EC] max-md:p-[8px] max-md:pb-0"
+            data-plan="basic"
+          >
+            <div class="flex flex-col gap-[3px] plan-main">
+              <div class="mb-[2px] flex items-center gap-[6px] plan-name-row">
+                <span class="text-[18px] font-[500] text-[#475467] plan-name max-md:text-[12px]">Basic</span>
+              </div>
+
+              <div class="flex items-baseline gap-1 text-[14px] text-[#212121] plan-price-row max-md:flex-col max-md:text-[30px]">
+                <div class="text-[24px] font-[600] text-[#C63C92] plan-price max-md:h-full max-md:text-[20px]" data-field="price">৳99</div>
+                <div class="text-[18px] text-[#9e9e9e] line-through plan-old-price max-md:hidden" data-field="oldPrice" style="display: none;">৳120</div>
+                <div class="text-[18px] text-[#616161] plan-per max-md:hidden" data-field="per">/month</div>
+                <div class="hidden plan-per-sm" data-field="per">monthly</div>
+
+                <div
+                  class="rounded-[12px] border border-[#B2DDFF] bg-[#EFF8FF] px-[6px] py-[2px] text-[10px] font-[600] text-[#175CD3] plan-tag
+                         max-md:hidden"
+                  data-field="discount"
+                  style="display: none;"
+                >
+                  Save 50%
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="absolute top-[12px] right-[12px] inline-flex h-[16px] w-[16px] items-center justify-center rounded-full border-2 border-[#E4E7EC] bg-transparent plan-radio
+                     max-md:top-[2px] max-md:right-[2px] max-md:h-[12px] max-md:w-[12px] max-md:border max-md:border-[#D0D5DD]"
+            >
+              <div class="h-[4px] w-[4px] rounded-full bg-transparent plan-radio-dot"></div>
+            </div>
+          </div>
+
+          <!-- Standard (active) -->
+          <div
+            class="relative flex h-[94px] cursor-pointer items-center justify-between rounded-[8px] border-[1.5px] border-[#C63C92]
+                   bg-[#FCF3FA] p-[14px_16px] plan-card plan-card-active outline outline-[1.5px] outline-[#C63C92]
+                   hover:border-[#FCF3FA] hover:bg-[#FCF3FA]
+                   max-md:h-[78px] max-md:justify-start max-md:border max-md:border-[#C63C92] max-md:p-[8px] max-md:pb-0 max-md:outline-[1px]"
+            data-plan="standard"
+          >
+            <div class="flex flex-col gap-[3px] plan-main">
+              <div class="mb-[2px] flex items-center gap-[6px] plan-name-row">
+                <span class="text-[18px] font-[500] text-[#475467] plan-name max-md:text-[12px]">Standard</span>
+              </div>
+
+              <div class="flex items-baseline gap-1 text-[14px] text-[#212121] plan-price-row max-md:flex-col max-md:text-[30px]">
+                <span class="text-[24px] font-[600] text-[#C63C92] plan-price max-md:h-full max-md:text-[20px]" data-field="price">৳149</span>
+                <span class="text-[18px] text-[#9e9e9e] line-through plan-old-price max-md:hidden" data-field="oldPrice" style="display: none;">৳180</span>
+                <span class="text-[18px] text-[#616161] plan-per max-md:hidden" data-field="per">/month</span>
+                <span class="hidden plan-per-sm" data-field="per">monthly</span>
+
+                <span
+                  class="rounded-[12px] border border-[#B2DDFF] bg-[#EFF8FF] px-[6px] py-[2px] text-[10px] font-[600] text-[#175CD3] plan-tag
+                         max-md:hidden"
+                  data-field="discount"
+                  style="display: none;"
+                >
+                  Save 50%
+                </span>
+              </div>
+            </div>
+
+            <div
+              class="absolute top-[12px] right-[12px] inline-flex h-[16px] w-[16px] items-center justify-center rounded-full border-2 border-[#C63C92] bg-[#C63C92] plan-radio
+                     max-md:top-[2px] max-md:right-[2px] max-md:h-[12px] max-md:w-[12px] max-md:border max-md:border-[#C63C92]"
+            >
+              <div class="h-[4px] w-[4px] rounded-full bg-white plan-radio-dot"></div>
+            </div>
+          </div>
+
+          <!-- Premium -->
+          <div
+            class="relative flex h-[94px] cursor-pointer items-center justify-between rounded-[8px] border-[1.5px] border-[#E4E7EC]
+                   bg-[#fafafa] p-[14px_16px] plan-card hover:border-[#FCF3FA] hover:bg-[#FCF3FA]
+                   max-md:h-[78px] max-md:justify-start max-md:border max-md:border-[#E4E7EC] max-md:p-[8px] max-md:pb-0"
+            data-plan="premium"
+          >
+            <div class="flex flex-col gap-[3px] plan-main">
+              <div class="mb-[2px] flex items-center gap-[6px] plan-name-row">
+                <span class="text-[18px] font-[500] text-[#475467] plan-name max-md:text-[12px]">Premium</span>
+              </div>
+
+              <div class="flex items-baseline gap-1 text-[14px] text-[#212121] plan-price-row max-md:flex-col max-md:text-[30px]">
+                <span class="text-[24px] font-[600] text-[#C63C92] plan-price max-md:h-full max-md:text-[20px]" data-field="price">৳199</span>
+                <span class="text-[18px] text-[#9e9e9e] line-through plan-old-price max-md:hidden" data-field="oldPrice" style="display: none;">৳180</span>
+                <span class="text-[18px] text-[#616161] plan-per max-md:hidden" data-field="per">/month</span>
+                <span class="hidden plan-per-sm" data-field="per">monthly</span>
+
+                <span
+                  class="rounded-[12px] border border-[#B2DDFF] bg-[#EFF8FF] px-[6px] py-[2px] text-[10px] font-[600] text-[#175CD3] plan-tag
+                         max-md:hidden"
+                  data-field="discount"
+                  style="display: none;"
+                >
+                  Save 50%
+                </span>
+              </div>
+            </div>
+
+            <div
+              class="absolute top-[12px] right-[12px] inline-flex h-[16px] w-[16px] items-center justify-center rounded-full border-2 border-[#E4E7EC] bg-transparent plan-radio
+                     max-md:top-[2px] max-md:right-[2px] max-md:h-[12px] max-md:w-[12px] max-md:border max-md:border-[#D0D5DD]"
+            >
+              <div class="h-[4px] w-[4px] rounded-full bg-transparent plan-radio-dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop footer -->
+        <div class="mt-auto flex flex-col gap-2 pricing-popover-footer max-md:hidden">
+          <button
+            class="inline-flex h-[48px] w-full cursor-pointer items-center justify-center gap-[6px] rounded-[8px] border-0
+                   bg-[#079455] px-[18px] py-[12px] text-[14px] font-[600] text-white hover:bg-[#067647] primary-btn upgradeBtn"
+          >
+            <span class="btn-label">Get Bdjobs Pro</span>
+            <img class="ml-[6px] h-[16px] w-[16px] pt-[2px] primary-btn-arrow icon-arrow" src="arrow-icon.svg" alt="" aria-hidden="true" />
+            <img class="ml-[6px] hidden h-[16px] w-[16px] pt-[2px] primary-btn-arrow icon-loading" src="loading.gif" alt="Loading" />
+          </button>
+
+          <div class="text-center text-[14px] font-[400] leading-[20px] text-[#475467] help-text">
+            Need help? <span class="font-[500]">09638866444</span> or <span class="font-[500]">01897627858</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile footer -->
+    <div class="hidden w-full p-[0px_18px_16px] pricing-popover-footer-sm max-md:block">
+      <button
+        class="inline-flex h-[40px] w-full cursor-pointer items-center justify-center gap-[6px] rounded-[8px] border-0
+               bg-[#079455] px-[14px] py-[10px] text-[14px] font-[600] text-white hover:bg-[#067647] primary-btn upgradeBtn"
+      >
+        <span class="btn-label">Get Bdjobs Pro</span>
+        <img class="ml-[6px] h-[16px] w-[16px] pt-[2px] primary-btn-arrow icon-arrow" src="arrow-icon.svg" alt="" aria-hidden="true" />
+        <img class="ml-[6px] hidden h-[16px] w-[16px] pt-[2px] primary-btn-arrow icon-loading" src="loading.gif" alt="Loading" />
+      </button>
+
+      <div class="mt-[12px] text-center text-[12px] font-[400] leading-[18px] text-[#475467] help-text">
+        Need help? <span class="font-[500]">09638866444</span> or <span class="font-[500]">01897627858</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
